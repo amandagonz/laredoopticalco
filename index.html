@@ -332,13 +332,13 @@
         }
         
         .counter-showcase {
-            background: var(--color-charcoal);
+            background: var(--color-medium-gray);
             padding: 3rem 2rem;
             position: relative;
         }
         
         .street-showcase {
-            background: var(--color-medium-gray);
+            background: var(--color-charcoal);
             padding: 3rem 2rem;
             position: relative;
         }
@@ -454,7 +454,7 @@
 
         /* Gallery Section */
         .gallery {
-            background: var(--color-charcoal);
+            background: var(--color-medium-gray);
             padding: 4rem 2rem;
             position: relative;
         }
@@ -712,7 +712,7 @@
 
         /* Brands Section */
         .brands {
-            background-color: var(--color-medium-gray);
+            background-color: var(--color-charcoal);
             padding: 4rem 2rem;
             position: relative;
         }
@@ -755,11 +755,11 @@
             padding: 1rem;
             height: 100px;
             transition: all 0.3s ease;
-            filter: none;
+            filter: brightness(0) invert(1);
         }
 
         .brand-logo:hover {
-            filter: none;
+            filter: brightness(0) invert(1);
             transform: scale(1.05);
         }
 
@@ -771,21 +771,21 @@
 
         /* Eyewear Section */
         .eyewear {
-            background-color: var(--color-medium-gray);
+            background-color: var(--color-pure-white);
             padding: 4rem 2rem;
             position: relative;
         }
 
         .eyewear .section-title h2 {
-            color: var(--color-pure-white);
+            color: var(--color-text-primary);
         }
 
         .eyewear .section-title p {
-            color: var(--color-light-silver);
+            color: var(--color-text-secondary);
         }
 
         .eyewear .section-title::after {
-            background: var(--color-light-silver);
+            background: var(--color-charcoal);
         }
 
         .eyewear::before {
@@ -926,7 +926,7 @@
 
         /* Eye Exam Section */
         .eye-exam {
-            background: var(--color-charcoal);
+            background: var(--color-medium-gray);
             padding: 4rem 2rem;
             color: var(--color-pure-white);
             text-align: center;
@@ -986,7 +986,7 @@
 
         /* Services Section */
         .services {
-            background: var(--color-medium-gray);
+            background: var(--color-pure-white);
             padding: 4rem 2rem;
             position: relative;
         }
@@ -1002,15 +1002,15 @@
         }
 
         .services .section-title h2 {
-            color: var(--color-pure-white);
+            color: var(--color-text-primary);
         }
 
         .services .section-title p {
-            color: var(--color-light-silver);
+            color: var(--color-text-secondary);
         }
 
         .services .section-title::after {
-            background: var(--color-light-silver);
+            background: var(--color-charcoal);
         }
 
         .services-grid {
@@ -1023,9 +1023,25 @@
 
         /* About Section */
         .about {
-            background-color: var(--color-pure-white);
+            background-color: var(--color-medium-gray);
             padding: 4rem 2rem;
             position: relative;
+        }
+
+        .about .section-title h2 {
+            color: var(--color-pure-white);
+        }
+
+        .about .section-title p {
+            color: var(--color-light-silver);
+        }
+
+        .about .section-title::after {
+            background: var(--color-light-silver);
+        }
+
+        .about-text p {
+            color: var(--color-off-white);
         }
 
         .about::before {
@@ -1414,6 +1430,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#partnerships">Partnerships</a></li>
                 <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
@@ -1828,6 +1845,17 @@
                 </div>
                 <h3>High Prescriptions</h3>
                 <p>Ultra-thin, lightweight lenses engineered for strong prescriptions without compromising elegance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-title">
+            <h2>About Us</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>At Laredo Optical Co. we redefine the eyewear experience by combining style, quality, and personalized service in a premier optical retail setting.</p>
             </div>
         </div>
     </section>
