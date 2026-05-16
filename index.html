@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laredo Optical Co.</title>
+    <title>Laredo Optical Co. | Premium Eyewear Destination</title>
     <link rel="icon" type="image/png" href="logos/logo3.png">
     <meta name="description" content="At Laredo Optical Co. we redefine the eyewear experience by combining style, quality, and personalized service. Your vision is our focus.">
-    <meta property="og:title" content="Laredo Optical Co.">
+    <meta property="og:title" content="Laredo Optical Co. | Premium Eyewear Destination">
     <meta property="og:description" content="At Laredo Optical Co. we redefine the eyewear experience by combining style, quality, and personalized service. Your vision is our focus.">
     <meta property="og:image" content="logos/logo1.png">
     <meta property="og:url" content="https://www.laredooptical.com">
@@ -14,9 +14,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        @import url('https://fonts.cdnfonts.com/css/apple-gothic');
-    </style>
     <style>
         :root {
             /* Black & White Color Palette */
@@ -43,7 +40,6 @@
             /* Fonts */
             --font-primary: 'Inter', sans-serif;
             --font-display: 'Playfair Display', serif;
-            --font-headers: 'Apple Gothic', 'Helvetica Neue', sans-serif;
             
             /* Shadows */
             --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -170,17 +166,37 @@
         }
 
         /* Hero Section */
+        @keyframes kenBurns {
+            0%   { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeUp {
+            0%   { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes lineGrow {
+            0%   { width: 0; }
+            100% { width: 60px; }
+        }
+
         .hero {
             position: relative;
             height: 600px;
             overflow: hidden;
             display: flex;
             align-items: center;
-            background: var(--color-charcoal);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
             background-image: url('locationPhotos/streetViewMain.png');
             background-size: cover;
-            background-position: center;
-            background-blend-mode: overlay;
+            background-position: center 25%;
+            animation: kenBurns 8s ease-out forwards;
+            z-index: 0;
         }
 
         .hero::before {
@@ -190,7 +206,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(26, 26, 26, 0.7);
+            background: rgba(26, 26, 26, 0.6);
             z-index: 1;
         }
 
@@ -220,17 +236,30 @@
             gap: 3rem;
         }
 
-        .hero-text h1 {
-            font-family: var(--font-display);
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--color-pure-white);
+        .hero-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeUp 1s ease 0.3s both;
         }
 
-        .hero-text h1 span {
-            color: var(--color-light-silver);
+        .hero-logo img {
+            max-width: 400px;
+            max-height: 200px;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+
+        .hero-divider {
+            width: 0;
+            height: 1px;
+            background: var(--color-light-silver);
+            animation: lineGrow 1s ease 1s forwards;
+            opacity: 0.6;
+        }
+
+        .hero-text {
+            animation: fadeUp 1s ease 1.2s both;
         }
 
         .hero-text .tagline {
@@ -241,21 +270,13 @@
             font-style: normal;
             letter-spacing: 1px;
             font-family: var(--font-primary);
-            padding-left: 0;
+            border-left: 3px solid var(--color-light-silver);
+            padding-left: 1rem;
             display: inline-block;
         }
 
-        .hero-logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-logo img {
-            max-width: 400px;
-            max-height: 200px;
-            filter: brightness(0) invert(1);
-            opacity: 0.9;
+        .hero-buttons {
+            animation: fadeUp 1s ease 1.5s both;
         }
 
         .button {
@@ -311,7 +332,7 @@
 
         .section-title h2 {
             color: var(--color-text-primary);
-            font-family: var(--font-headers);
+            font-family: var(--font-display);
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
             font-weight: 600;
@@ -324,59 +345,53 @@
             margin: 0 auto;
         }
 
-        /* Location Showcase Sections */
-        .location-showcase {
-            background: var(--color-pure-white);
-            padding: 3rem 2rem;
-            position: relative;
-        }
-        
-        .counter-showcase {
-            background: var(--color-medium-gray);
-            padding: 3rem 2rem;
-            position: relative;
-        }
-        
-        .street-showcase {
-            background: var(--color-charcoal);
-            padding: 3rem 2rem;
+        /* About Section */
+        .about {
+            background-color: var(--color-pure-white);
+            padding: 4rem 2rem;
             position: relative;
         }
 
-        .location-showcase .section-title h2 {
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-light-silver);
+        }
+
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
             color: var(--color-text-primary);
         }
 
-        .location-showcase .section-title p {
-            color: var(--color-text-secondary);
+        /* Location Showcase Sections */
+        .location-showcase,
+        .counter-showcase,
+        .street-showcase {
+            padding: 3rem 2rem;
+            position: relative;
         }
 
-        .location-showcase .section-title::after {
-            background: var(--color-charcoal);
+        .location-showcase {
+            background: var(--color-dark-gray);
         }
 
-        .street-showcase .section-title h2 {
-            color: var(--color-pure-white);
+        .counter-showcase {
+            background: var(--color-dark-gray);
         }
 
-        .street-showcase .section-title p {
-            color: var(--color-light-silver);
-        }
-
-        .street-showcase .section-title::after {
-            background: var(--color-light-silver);
-        }
-
-        .counter-showcase .section-title h2 {
-            color: var(--color-pure-white);
-        }
-
-        .counter-showcase .section-title p {
-            color: var(--color-light-silver);
-        }
-
-        .counter-showcase .section-title::after {
-            background: var(--color-light-silver);
+        .street-showcase {
+            background: var(--color-dark-gray);
         }
 
         .location-showcase::before,
@@ -413,6 +428,7 @@
             width: 100%;
             height: 400px;
             object-fit: cover;
+            object-position: center 55%;
             display: block;
             transition: all 0.3s ease;
         }
@@ -429,16 +445,10 @@
             background: linear-gradient(transparent, rgba(26, 26, 26, 0.9));
             color: var(--color-pure-white);
             padding: 3rem 2rem 2rem;
-            transform: translateY(100%);
-            transition: all 0.4s ease;
-        }
-
-        .showcase-image:hover .showcase-caption {
-            transform: translateY(0);
         }
 
         .showcase-caption h3 {
-            font-family: var(--font-headers);
+            font-family: var(--font-display);
             font-size: 1.8rem;
             margin-bottom: 0.8rem;
             color: var(--color-light-silver);
@@ -452,9 +462,276 @@
             opacity: 0.95;
         }
 
+        /* Advantages Section */
+        .advantages {
+            background: var(--color-pure-white);
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .advantages::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-light-silver);
+        }
+
+        .advantages .section-title h2 {
+            color: var(--color-text-primary);
+        }
+
+        .advantages .section-title p {
+            color: var(--color-text-secondary);
+        }
+
+        .advantages .section-title::after {
+            background: var(--color-charcoal);
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Eyewear Section */
+        .eyewear {
+            background-color: var(--color-dark-gray);
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .eyewear::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-light-silver);
+        }
+
+        .eyewear .section-title h2 {
+            color: var(--color-pure-white);
+        }
+
+        .eyewear .section-title p {
+            color: var(--color-light-silver);
+        }
+
+        .eyewear .section-title::after {
+            background: var(--color-light-silver);
+        }
+
+        .eyewear-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--color-pure-white);
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-light-silver);
+        }
+
+        .services .section-title h2 {
+            color: var(--color-text-primary);
+        }
+
+        .services .section-title p {
+            color: var(--color-text-secondary);
+        }
+
+        .services .section-title::after {
+            background: var(--color-charcoal);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Eye Exam Section */
+        .eye-exam {
+            background: var(--color-pure-white);
+            padding: 4rem 2rem;
+            color: var(--color-text-primary);
+            text-align: center;
+            position: relative;
+        }
+
+        .eye-exam::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-light-silver);
+        }
+
+        .eye-exam h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-text-primary);
+        }
+
+        .eye-exam p {
+            color: var(--color-text-secondary);
+        }
+
+        .eye-exam-card {
+            background: var(--color-off-white);
+            border: 1px solid var(--color-light-silver);
+        }
+
+        .eye-exam-card h3 {
+            color: var(--color-text-primary);
+        }
+
+        .eye-exam-card p {
+            color: var(--color-text-secondary);
+        }
+
+        .eye-exam-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .eye-exam-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .eye-exam-card {
+            background: var(--color-off-white);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-light-silver);
+        }
+
+        .eye-exam-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-primary);
+            font-family: var(--font-display);
+            font-weight: 600;
+        }
+
+        .eye-exam-card p {
+            font-family: var(--font-primary);
+            font-weight: 400;
+            color: var(--color-text-secondary);
+        }
+
+        /* Partnerships Section */
+        .partnerships {
+            background-color: var(--color-dark-gray);
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .partnerships::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-light-silver);
+        }
+
+        .partnerships .section-title h2 {
+            color: var(--color-pure-white);
+        }
+
+        .partnerships .section-title p {
+            color: var(--color-light-silver);
+        }
+
+        .partnerships .section-title::after {
+            background: var(--color-light-silver);
+        }
+
+        .partnerships-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .partnership-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .partnership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .partnership-logo {
+            height: 80px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partnership-logo img {
+            max-height: 100%;
+            max-width: 150px;
+            object-fit: contain;
+        }
+
+        .partnership-card h3 {
+            color: var(--color-pure-white);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-size: 1.25rem;
+            font-family: var(--font-display);
+        }
+
+        .partnership-card p {
+            color: var(--color-light-silver);
+            line-height: 1.6;
+        }
+
         /* Gallery Section */
         .gallery {
-            background: var(--color-medium-gray);
+            background: var(--color-pure-white);
             padding: 4rem 2rem;
             position: relative;
         }
@@ -470,157 +747,78 @@
         }
 
         .gallery .section-title h2 {
-            color: var(--color-pure-white);
+            color: var(--color-text-primary);
         }
 
         .gallery .section-title p {
-            color: var(--color-light-silver);
+            color: var(--color-text-secondary);
         }
 
         .gallery .section-title::after {
-            background: var(--color-light-silver);
+            background: var(--color-charcoal);
         }
 
         .gallery-container {
             max-width: 1200px;
             margin: 0 auto;
-            position: relative;
         }
 
-        .gallery-slider-wrapper {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .gallery-slider {
+        .gallery-grid {
             display: flex;
-            transition: transform 0.5s ease;
+            gap: 12px;
+            align-items: flex-start;
         }
 
-        .gallery-slide {
-            flex: 0 0 300px;
-            margin-right: 2rem;
-            border-radius: var(--radius-lg);
+        .gallery-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .gallery-item {
             overflow: hidden;
-            box-shadow: var(--shadow-light);
-            background: var(--color-pure-white);
             cursor: pointer;
-            transition: all 0.3s ease;
+            position: relative;
         }
 
-        .gallery-slide:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .gallery-slide img {
+        .gallery-item img {
             width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: all 0.3s ease;
-            filter: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(152, 66, 22, 0.2);
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease, filter 0.4s ease;
+            filter: brightness(0.95);
         }
 
-        .gallery-slide:hover img {
-            filter: brightness(1.1) saturate(1.1);
-            box-shadow: 0 8px 24px rgba(152, 66, 22, 0.3);
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 26, 26, 0);
+            transition: background 0.4s ease;
         }
 
-        .gallery-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            margin-top: 2rem;
+        .gallery-item:hover::after {
+            background: rgba(26, 26, 26, 0.15);
         }
 
-        .gallery-nav {
-            background: var(--color-charcoal);
-            color: var(--color-pure-white);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-light);
-        }
-
-        .gallery-nav:hover {
-            background: var(--color-light-silver);
-            color: var(--color-text-primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .gallery-nav:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .gallery-dots {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .gallery-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.3);
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-dot.active {
-            background: var(--color-charcoal);
-            transform: scale(1.2);
-        }
-
-        .play-pause-btn {
-            background: var(--color-light-silver);
-            color: var(--color-text-primary);
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-light);
-        }
-
-        .play-pause-btn:hover {
-            background: var(--color-charcoal);
-            color: var(--color-pure-white);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-medium);
+        .gallery-item:hover img {
+            transform: scale(1.03);
+            filter: brightness(1.05);
         }
 
         /* Lightbox Styles */
         .lightbox {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10000;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .lightbox.active {
@@ -630,103 +828,93 @@
 
         .lightbox-content {
             position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 4rem 5rem;
         }
 
         .lightbox img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-deep);
+            display: block;
+            user-select: none;
         }
 
         .lightbox-close {
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            background: var(--color-charcoal);
-            color: var(--color-pure-white);
-            border: none;
-            width: 40px;
-            height: 40px;
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: transparent;
+            color: var(--color-light-silver);
+            border: 1px solid rgba(255,255,255,0.2);
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            line-height: 1;
+            z-index: 10001;
         }
 
         .lightbox-close:hover {
-            background: var(--color-light-silver);
-            color: var(--color-text-primary);
+            background: rgba(255,255,255,0.1);
+            color: var(--color-pure-white);
+            border-color: rgba(255,255,255,0.4);
         }
 
         .lightbox-nav {
-            position: absolute;
+            position: fixed;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(26, 26, 26, 0.8);
-            color: var(--color-pure-white);
-            border: none;
+            background: transparent;
+            color: var(--color-light-silver);
+            border: 1px solid rgba(255,255,255,0.2);
             width: 50px;
             height: 50px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            z-index: 10001;
         }
 
         .lightbox-nav:hover {
-            background: var(--color-charcoal);
+            background: rgba(255,255,255,0.1);
+            color: var(--color-pure-white);
+            border-color: rgba(255,255,255,0.4);
         }
 
-        .lightbox-prev {
-            left: -80px;
-        }
-
-        .lightbox-next {
-            right: -80px;
-        }
+        .lightbox-prev { left: 1.5rem; }
+        .lightbox-next { right: 1.5rem; }
 
         .lightbox-counter {
-            position: absolute;
-            bottom: -50px;
+            position: fixed;
+            bottom: 1.5rem;
             left: 50%;
             transform: translateX(-50%);
-            color: var(--color-pure-white);
-            font-weight: 600;
-            background: rgba(26, 26, 26, 0.8);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            color: var(--color-silver);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-family: var(--font-primary);
+            font-weight: 400;
         }
 
         /* Brands Section */
         .brands {
-            background-color: var(--color-charcoal);
+            background-color: var(--color-pure-white);
             padding: 4rem 2rem;
             position: relative;
-        }
-
-        .brands .section-title h2 {
-            color: var(--color-pure-white);
-        }
-
-        .brands .section-title p {
-            color: var(--color-light-silver);
-        }
-
-        .brands .section-title::after {
-            background: var(--color-light-silver);
         }
 
         .brands::before {
@@ -737,6 +925,18 @@
             right: 0;
             height: 4px;
             background: var(--color-light-silver);
+        }
+
+        .brands .section-title h2 {
+            color: var(--color-text-primary);
+        }
+
+        .brands .section-title p {
+            color: var(--color-text-secondary);
+        }
+
+        .brands .section-title::after {
+            background: var(--color-charcoal);
         }
 
         .brands-grid {
@@ -755,11 +955,11 @@
             padding: 1rem;
             height: 100px;
             transition: all 0.3s ease;
-            filter: brightness(0) invert(1);
+            filter: grayscale(100%);
         }
 
         .brand-logo:hover {
-            filter: brightness(0) invert(1);
+            filter: grayscale(0%);
             transform: scale(1.05);
         }
 
@@ -767,303 +967,6 @@
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
-        }
-
-        /* Eyewear Section */
-        .eyewear {
-            background-color: var(--color-pure-white);
-            padding: 4rem 2rem;
-            position: relative;
-        }
-
-        .eyewear .section-title h2 {
-            color: var(--color-text-primary);
-        }
-
-        .eyewear .section-title p {
-            color: var(--color-text-secondary);
-        }
-
-        .eyewear .section-title::after {
-            background: var(--color-charcoal);
-        }
-
-        .eyewear::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--color-light-silver);
-        }
-
-        .eyewear-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Advantages Section */
-        .advantages {
-            background: var(--color-charcoal);
-            padding: 4rem 2rem;
-            position: relative;
-        }
-
-        .advantages::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--color-light-silver);
-        }
-
-        .advantages .section-title h2 {
-            color: var(--color-pure-white);
-        }
-
-        .advantages .section-title p {
-            color: var(--color-light-silver);
-        }
-
-        .advantages .section-title::after {
-            background: var(--color-light-silver);
-        }
-
-        .advantages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Partnerships Section */
-        .partnerships {
-            background-color: var(--color-pure-white);
-            padding: 4rem 2rem;
-            position: relative;
-        }
-
-        .partnerships .section-title h2 {
-            color: var(--color-text-primary);
-        }
-
-        .partnerships .section-title p {
-            color: var(--color-text-secondary);
-        }
-
-        .partnerships .section-title::after {
-            background: var(--color-charcoal);
-        }
-
-        .partnerships::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--color-light-silver);
-        }
-
-        .partnerships-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .partnership-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--color-off-white);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-light);
-            transition: all 0.3s ease;
-            border: 1px solid var(--color-light-silver);
-        }
-
-        .partnership-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
-            border-color: var(--color-charcoal);
-        }
-
-        .partnership-logo {
-            height: 80px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .partnership-logo img {
-            max-height: 100%;
-            max-width: 150px;
-            object-fit: contain;
-            filter: none;
-        }
-
-        .partnership-card h3 {
-            color: var(--color-text-primary);
-            margin-bottom: 1rem;
-            font-weight: 600;
-            font-size: 1.25rem;
-            font-family: var(--font-headers);
-        }
-
-        .partnership-card p {
-            color: var(--color-text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Eye Exam Section */
-        .eye-exam {
-            background: var(--color-medium-gray);
-            padding: 4rem 2rem;
-            color: var(--color-pure-white);
-            text-align: center;
-            position: relative;
-        }
-
-        .eye-exam::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--color-light-silver);
-        }
-
-        .eye-exam h2 {
-            font-family: var(--font-headers);
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--color-pure-white);
-        }
-
-        .eye-exam-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .eye-exam-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .eye-exam-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: var(--radius-lg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .eye-exam-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--color-light-silver);
-            font-family: var(--font-headers);
-            font-weight: 600;
-        }
-
-        .eye-exam-card p {
-            font-family: var(--font-primary);
-            font-weight: 400;
-            color: var(--color-off-white);
-        }
-
-        /* Services Section */
-        .services {
-            background: var(--color-charcoal);
-            padding: 4rem 2rem;
-            position: relative;
-        }
-
-        .services::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--color-light-silver);
-        }
-
-        .services .section-title h2 {
-            color: var(--color-pure-white);
-        }
-
-        .services .section-title p {
-            color: var(--color-light-silver);
-        }
-
-        .services .section-title::after {
-            background: var(--color-light-silver);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        /* About Section */
-        .about {
-            background-color: var(--color-pure-white);
-            padding: 4rem 2rem;
-            position: relative;
-        }
-
-        .about .section-title h2 {
-            color: var(--color-text-primary);
-        }
-
-        .about .section-title p {
-            color: var(--color-text-secondary);
-        }
-
-        .about .section-title::after {
-            background: var(--color-charcoal);
-        }
-
-        .about-text p {
-            color: var(--color-text-primary);
-        }
-
-        .about::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--color-light-silver);
-        }
-
-        .about-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-text {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: var(--color-text-primary);
         }
 
         /* Contact Section */
@@ -1134,7 +1037,7 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
             font-weight: 600;
-            font-family: var(--font-headers);
+            font-family: var(--font-display);
         }
 
         .contact-item p {
@@ -1207,6 +1110,7 @@
             width: 100%;
             height: 350px;
             border: none;
+            filter: grayscale(100%) contrast(1.2) brightness(0.9);
         }
 
         /* Card Styles */
@@ -1253,7 +1157,7 @@
             margin-bottom: 1rem;
             font-weight: 600;
             font-size: 1.25rem;
-            font-family: var(--font-headers);
+            font-family: var(--font-display);
         }
 
         .card p {
@@ -1335,6 +1239,8 @@
                 max-width: 300px;
                 max-height: 150px;
             }
+
+
 
             .advantages-grid,
             .eyewear-grid,
@@ -1425,25 +1331,28 @@
 
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#advantages">Our Advantages</a></li>
                 <li><a href="#eyewear">Eyewear</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#partnerships">Partnerships</a></li>
                 <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#brands">Our Brands</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home" class="hero">
+        <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="hero-logo">
                 <img src="logos/logo1.png" alt="Laredo Optical Co. Logo">
             </div>
+            <div class="hero-divider"></div>
             <div class="hero-text">
-                <p class="tagline">Your vision is our focus</p>
-                <div style="display: flex; gap: 1rem; margin-top: 2rem; justify-content: center; flex-wrap: wrap;">
+                <p class="tagline">"Your vision is our focus"</p>
+                <div class="hero-buttons" style="display: flex; gap: 1rem; margin-top: 2rem; justify-content: center; flex-wrap: wrap;">
                     <a href="#contact" class="button button-primary">Visit Us Today</a>
                     <a href="#about" class="button button-secondary">Learn More</a>
                 </div>
@@ -1451,160 +1360,80 @@
         </div>
     </section>
 
-    <!-- Step Inside Our Store Section -->
-    <section id="step-inside" class="location-showcase">
+    <section id="about" class="about">
         <div class="section-title">
-            <h2>Step Inside Our Store</h2>
-            <p>Experience our welcoming atmosphere and premium eyewear displays</p>
+            <h2>About Us</h2>
+            <p>Redefining the eyewear experience through style, quality, and personalized service</p>
         </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>At Laredo Optical Co. we redefine the eyewear experience by combining style, quality, and personalized service in a premier optical retail setting. Our curated collection features an extensive range of eyeglasses and sunglasses, from budget-friendly essentials to high-end luxury frames from globally renowned designers.</p>
+                <p>Whether you're seeking everyday vision solutions or a bold fashion statement, we provide eyewear that fits every lifestyle and price point, without compromising on craftsmanship or care. Our eye care professionals offer expert fittings and tailored consultations to ensure that each customer leaves with perfect vision and confident style.</p>
+                <p><strong>Experience Laredo Optical Co., where timeless elegance meets affordable eyewear.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Showcase Section -->
+    <section id="location-showcase" class="location-showcase">
         <div class="showcase-container">
             <div class="showcase-image">
-                <img src="locationPhotos/stepInsideOurStore.jpg" alt="Step Inside Our Store">
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery" class="gallery">
-        <div class="section-title">
-            <h2>Gallery</h2>
-            <p>Explore our premium eyewear collection</p>
-        </div>
-        <div class="gallery-container">
-            <div class="gallery-slider-wrapper">
-                <div class="gallery-slider" id="gallerySlider">
-                    <div class="gallery-slide" data-index="0">
-                        <img src="productPhotos/product1.jpg" alt="Premium Eyewear Collection">
-                    </div>
-                    <div class="gallery-slide" data-index="1">
-                        <img src="productPhotos/product2.jpg" alt="Designer Frames">
-                    </div>
-                    <div class="gallery-slide" data-index="2">
-                        <img src="productPhotos/product3.jpg" alt="Luxury Sunglasses">
-                    </div>
-                    <div class="gallery-slide" data-index="3">
-                        <img src="productPhotos/product4.jpg" alt="Men's Eyewear">
-                    </div>
-                    <div class="gallery-slide" data-index="4">
-                        <img src="productPhotos/product5.jpg" alt="Women's Frames">
-                    </div>
-                    <div class="gallery-slide" data-index="5">
-                        <img src="productPhotos/product6.jpg" alt="Kids Glasses">
-                    </div>
-                    <div class="gallery-slide" data-index="6">
-                        <img src="productPhotos/product7.jpg" alt="Sports Eyewear">
-                    </div>
-                    <div class="gallery-slide" data-index="7">
-                        <img src="productPhotos/product8.jpg" alt="Progressive Lenses">
-                    </div>
-                    <div class="gallery-slide" data-index="8">
-                        <img src="productPhotos/product9.jpg" alt="Fashion Frames">
-                    </div>
-                    <div class="gallery-slide" data-index="9">
-                        <img src="productPhotos/product10.jpg" alt="Classic Styles">
-                    </div>
-                    <div class="gallery-slide" data-index="10">
-                        <img src="productPhotos/product11.jpg" alt="Modern Design">
-                    </div>
-                    <div class="gallery-slide" data-index="11">
-                        <img src="productPhotos/product12.jpg" alt="Trendy Eyewear">
-                    </div>
-                    <div class="gallery-slide" data-index="12">
-                        <img src="productPhotos/product13.jpg" alt="Premium Collection">
-                    </div>
-                    <div class="gallery-slide" data-index="13">
-                        <img src="productPhotos/product14.jpg" alt="Designer Eyewear">
-                    </div>
-                    <div class="gallery-slide" data-index="14">
-                        <img src="productPhotos/product15.jpg" alt="Luxury Frames">
-                    </div>
-                    <div class="gallery-slide" data-index="15">
-                        <img src="productPhotos/product16.jpg" alt="Stylish Glasses">
-                    </div>
-                    <div class="gallery-slide" data-index="16">
-                        <img src="productPhotos/product17.jpg" alt="Quality Eyewear">
-                    </div>
-                    <div class="gallery-slide" data-index="17">
-                        <img src="productPhotos/product18.jpg" alt="Professional Frames">
-                    </div>
-                    <div class="gallery-slide" data-index="18">
-                        <img src="productPhotos/product19.jpg" alt="Elegant Design">
-                    </div>
-                    <div class="gallery-slide" data-index="19">
-                        <img src="productPhotos/product20.jpg" alt="Contemporary Style">
-                    </div>
-                    <div class="gallery-slide" data-index="20">
-                        <img src="productPhotos/product21.jpg" alt="Premium Quality">
-                    </div>
-                    <div class="gallery-slide" data-index="21">
-                        <img src="productPhotos/product22.jpg" alt="Fashion Forward">
-                    </div>
-                    <div class="gallery-slide" data-index="22">
-                        <img src="productPhotos/product23.jpg" alt="Complete Collection">
-                    </div>
+                <img src="locationPhotos/mainHallway.png" alt="Spacious Interior - Main Hallway">
+                <div class="showcase-caption">
+                    <h3>Step Inside Our Store</h3>
+                    <p>Browse our collections in a comfortable, well-lit environment designed for your convenience</p>
                 </div>
             </div>
-            
-            <div class="gallery-controls">
-                <button class="gallery-nav" id="prevBtn">‹</button>
-                <div class="gallery-dots" id="galleryDots"></div>
-                <button class="gallery-nav" id="nextBtn">›</button>
-            </div>
-            
-            <div class="gallery-controls">
-                <button class="play-pause-btn" id="playPauseBtn">Pause Auto-Play</button>
-            </div>
         </div>
     </section>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-            <button class="lightbox-close" id="lightboxClose">×</button>
-            <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
-            <img id="lightboxImage" src="" alt="">
-            <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
-            <div class="lightbox-counter" id="lightboxCounter">1 / 23</div>
-        </div>
-    </div>
-
-    <section id="brands" class="brands">
+    <section id="advantages" class="advantages">
         <div class="section-title">
-            <h2>Our Brands</h2>
-            <p>Our showroom features top designers and trusted names in eyewear</p>
+            <h2>Our Advantages</h2>
+            <p>Comprehensive eyewear solutions for your vision needs</p>
         </div>
-        <div class="brands-grid">
-            <div class="brand-logo">
-                <img src="logos/rayban.png" alt="Ray-Ban">
+        <div class="advantages-grid">
+            <div class="card">
+                <div class="card-icon">
+                    <img src="logos/inHouseLensEdging.svg" alt="In-House Lens Edging">
+                </div>
+                <h3>In-House Lens Edging</h3>
+                <p>Fast turnaround with same-day glasses on many prescriptions, crafted with precision right in our lab.</p>
             </div>
-            <div class="brand-logo">
-                <img src="logos/oakley.png" alt="Oakley">
+            <div class="card">
+                <div class="card-icon">
+                    <img src="logos/specialOffers.svg" alt="Special Offers">
+                </div>
+                <h3>Special Offers</h3>
+                <p>Exclusive savings, deals, and special offers available throughout the year.</p>
             </div>
-            <div class="brand-logo">
-                <img src="logos/gucci.svg" alt="Gucci">
+            <div class="card">
+                <div class="card-icon">
+                    <img src="logos/designerLuxuryBrands.svg" alt="Designer & Luxury Brands">
+                </div>
+                <h3>Designer & Luxury Brands</h3>
+                <p>Curated collections from world-renowned designers alongside trusted everyday brands, something for every style and budget.</p>
             </div>
-            <div class="brand-logo">
-                <img src="logos/prada.svg" alt="Prada">
+            <div class="card">
+                <div class="card-icon">
+                    <img src="logos/expertFittingsAdjustments.svg" alt="Expert Fittings & Adjustments">
+                </div>
+                <h3>Expert Fittings & Adjustments</h3>
+                <p>Personalized consultations and precise fittings by trained professionals to ensure comfort, clarity, and confidence.</p>
             </div>
-            <div class="brand-logo">
-                <img src="logos/tomFord.svg" alt="Tom Ford">
+            <div class="card">
+                <div class="card-icon">
+                    <img src="logos/advancedLensTechnology.svg" alt="Advanced Lens Technology">
+                </div>
+                <h3>Advanced Lens Technology</h3>
+                <p>From blue light filters to ultra-thin high-index, as well as VariluxÂ® and TransitionsÂ®, we offer the latest innovations in vision solutions.</p>
             </div>
-            <div class="brand-logo">
-                <img src="logos/versace.svg" alt="Versace">
-            </div>
-            <div class="brand-logo">
-                <img src="logos/chloe.png" alt="Chloe">
-            </div>
-            <div class="brand-logo">
-                <img src="logos/burberry.svg" alt="Burberry">
-            </div>
-            <div class="brand-logo">
-                <img src="logos/nike.png" alt="Nike">
-            </div>
-            <div class="brand-logo">
-                <img src="logos/miuMiu.svg" alt="Miu Miu">
-            </div>
-            <div class="brand-logo">
-                <img src="logos/michaelKors.png" alt="Michael Kors">
+            <div class="card">
+                <div class="card-icon">
+                    <img src="logos/localCareTrustedService.svg" alt="Local Care, Trusted Service">
+                </div>
+                <h3>Local Care, Trusted Service</h3>
+                <p>As a locally rooted optical, we prioritize building long-term relationships with our patients through genuine, personalized care.</p>
             </div>
         </div>
     </section>
@@ -1654,152 +1483,6 @@
         </div>
     </section>
 
-    <!-- Expert Service Counter Showcase -->
-    <section id="expert-service" class="counter-showcase">
-        <div class="section-title">
-            <h2>Expert Service Counter</h2>
-            <p>Professional consultations and personalized eyewear fitting services</p>
-        </div>
-        <div class="showcase-container">
-            <div class="showcase-image">
-                <img src="locationPhotos/counterDisplay.png" alt="Professional Service Counter">
-            </div>
-        </div>
-    </section>
-
-    <section id="advantages" class="advantages">
-        <div class="section-title">
-            <h2>Our Advantages</h2>
-            <p>Comprehensive eyewear solutions for your vision needs</p>
-        </div>
-        <div class="advantages-grid">
-            <div class="card">
-                <div class="card-icon">
-                    <img src="logos/inHouseLensEdging.svg" alt="In-House Lens Edging">
-                </div>
-                <h3>In-House Lens Edging</h3>
-                <p>Fast turnaround with same-day glasses on many prescriptions, crafted with precision right in our lab.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">
-                    <img src="logos/specialOffers.svg" alt="Special Offers">
-                </div>
-                <h3>Special Offers</h3>
-                <p>Exclusive savings, deals, and special offers available throughout the year.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">
-                    <img src="logos/designerLuxuryBrands.svg" alt="Designer & Luxury Brands">
-                </div>
-                <h3>Designer & Luxury Brands</h3>
-                <p>Curated collections from world-renowned designers alongside trusted everyday brands, something for every style and budget.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">
-                    <img src="logos/expertFittingsAdjustments.svg" alt="Expert Fittings & Adjustments">
-                </div>
-                <h3>Expert Fittings & Adjustments</h3>
-                <p>Personalized consultations and precise fittings by trained professionals to ensure comfort, clarity, and confidence.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">
-                    <img src="logos/advancedLensTechnology.svg" alt="Advanced Lens Technology">
-                </div>
-                <h3>Advanced Lens Technology</h3>
-                <p>From blue light filters to ultra-thin high-index, as well as Varilux® and Transitions®, we offer the latest innovations in vision solutions.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">
-                    <img src="logos/localCareTrustedService.svg" alt="Local Care, Trusted Service">
-                </div>
-                <h3>Local Care, Trusted Service</h3>
-                <p>As a locally rooted optical, we prioritize building long-term relationships with our patients through genuine, personalized care.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="partnerships" class="partnerships">
-        <div class="section-title">
-            <h2>Partnerships</h2>
-            <p>Working with industry leaders to serve you better</p>
-        </div>
-        <div class="partnerships-grid">
-            <div class="partnership-card">
-                <div class="partnership-logo">
-                    <img src="logos/eyeTopia.svg" alt="Eyetopia Vision Insurance">
-                </div>
-                <h3>Eyetopia Vision Insurance</h3>
-                <p>We're proud to be in-network with Eyetopia Vision Insurance, making it easy for patients to use their vision benefits directly with us. Enjoy seamless access to quality eyewear and eye care while maximizing your coverage.</p>
-            </div>
-            <div class="partnership-card">
-                <div class="partnership-logo">
-                    <img src="logos/essilor.svg" alt="Essilor Labs">
-                </div>
-                <h3>Essilor Labs</h3>
-                <p>As partners with Essilor Labs, we provide access to some of the world's most advanced lens technologies. From Varilux® progressive lenses for seamless near-to-far vision to Crizal® anti-reflective coatings for glare-free clarity and Transitions® light intelligent lenses that adapt to changing light, Essilor helps us deliver unmatched comfort, protection, and performance.</p>
-            </div>
-            <div class="partnership-card">
-                <div class="partnership-logo">
-                    <img src="logos/zeiss.svg" alt="Zeiss Labs">
-                </div>
-                <h3>Zeiss Labs</h3>
-                <p>Through our collaboration with Zeiss Labs, we offer precision-crafted premium lenses, trusted by millions worldwide. From ZEISS SmartLife® lenses designed for today's digital lifestyle to ZEISS DriveSafe® lenses that enhance clarity and reduce glare while driving, our patients enjoy innovation, accuracy, and uncompromising optical quality.</p>
-            </div>
-            <div class="partnership-card">
-                <div class="partnership-logo" style="display: flex; justify-content: center; align-items: center;">
-                    <a href="https://www.carecredit.com/go/GAT965/?dtc=DS9X&sitecode=CCLBADS9X" target="_blank">
-                        <img width="275" style="max-width:100%;" src="https://www.carecredit.com/sites/pc/image/flexible-financing-prequal-420x150.png" alt="CareCredit Flexible Financing"/>
-                    </a>
-                </div>
-                <h3>CareCredit Financing</h3>
-                <p>Make your eyewear purchase more affordable with CareCredit's flexible financing options.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="eye-exam" class="eye-exam">
-        <h2>Time for an Eye Exam?</h2>
-        <div class="eye-exam-content">
-            <p>Need an updated glasses prescription? We've partnered with our affiliated practice, Eye Care of Laredo, to provide comprehensive eye exams and vision health services, conveniently located just steps away in Suite 101. Call (956) 652-4321 to book your appointment today.</p>
-            
-            <div class="eye-exam-grid">
-                <div class="eye-exam-card">
-                    <h3>Book an Eye Exam</h3>
-                    <p>Eye Care of Laredo - Suite 101</p>
-                    <p><strong>Call: (956) 652-4321</strong></p>
-                </div>
-                <div class="eye-exam-card">
-                    <h3>Already Have a Prescription?</h3>
-                    <p>Bring us a copy or fax to:</p>
-                    <p><strong>(832) 895-6109</strong></p>
-                </div>
-            </div>
-
-            <!-- Directions from Laredo Optical to Eye Care of Laredo -->
-            <div class="map-container" style="margin-top: 3rem;">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3537.4944761324344!2d-99.5047845238531!3d27.54378957623686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x866120e8c5555555%3A0x5555555555555555!2s1119%20Fenwick%20Dr%20%23103%2C%20Laredo%2C%20TX%2078041!3m2!1d27.5437896!2d-99.5025958!4m5!1s0x866120e8c5555555%3A0x5555555555555555!2s1119%20Fenwick%20Dr%20%23101%2C%20Laredo%2C%20TX%2078041!3m2!1d27.5437896!2d-99.5025958!5e0!3m2!1sen!2sus!4v1751091759084!5m2!1sen!2sus"
-                    width="100%"
-                    height="300"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-
-            <!-- Professional Location Showcase -->
-            <div class="showcase-container" style="margin-top: 4rem;">
-                <div class="showcase-image">
-                    <img src="locationPhotos/visitOurProfessionalLocation.jpg" alt="Laredo Optical Co. Professional Storefront">
-                </div>
-                <div style="text-align: center; margin-top: 2rem; color: var(--color-off-white);">
-                    <p style="font-size: 1.1rem;">Located at 1119 Fenwick Dr. Suite 103, Laredo Optical Co. is easily accessible and centrally positioned to serve the Laredo community.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="services" class="services">
         <div class="section-title">
             <h2>Specialized Services</h2>
@@ -1837,13 +1520,148 @@
         </div>
     </section>
 
-    <section id="about" class="about">
-        <div class="section-title">
-            <h2>About Us</h2>
+    <!-- Counter Display Showcase -->
+    <section id="counter-showcase" class="counter-showcase">
+        <div class="showcase-container">
+            <div class="showcase-image">
+                <img src="locationPhotos/counterDisplay.png" alt="Professional Service Counter">
+                <div class="showcase-caption">
+                    <h3>Expert Service Counter</h3>
+                    <p>Professional consultations and personalized eyewear fitting services in a welcoming environment</p>
+                </div>
+            </div>
         </div>
-        <div class="about-content">
-            <div class="about-text">
-                <p>At Laredo Optical Co. we redefine the eyewear experience by combining style, quality, and personalized service in a premier optical retail setting.</p>
+    </section>
+
+    <section id="eye-exam" class="eye-exam">
+        <h2>Time for an Eye Exam?</h2>
+        <div class="eye-exam-content">
+            <p>Need an updated glasses prescription? We've partnered with our affiliated practice, Eye Care of Laredo, to provide comprehensive eye exams and vision health services, conveniently located just steps away in Suite 101. Call (956) 652-4321 to book your appointment today.</p>
+            
+            <div class="eye-exam-grid">
+                <div class="eye-exam-card">
+                    <h3>Book an Eye Exam</h3>
+                    <p>Eye Care of Laredo - Suite 101</p>
+                    <p><strong>Call: (956) 652-4321</strong></p>
+                </div>
+                <div class="eye-exam-card">
+                    <h3>Already Have a Prescription?</h3>
+                    <p>Bring us a copy or fax to:</p>
+                    <p><strong>(832) 895-6109</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partnerships" class="partnerships">
+        <div class="section-title">
+            <h2>Partnerships</h2>
+            <p>Working with industry leaders to serve you better</p>
+        </div>
+        <div class="partnerships-grid">
+            <div class="partnership-card">
+                <div class="partnership-logo">
+                    <img src="logos/eyeTopia.svg" alt="Eyetopia Vision Insurance">
+                </div>
+                <h3>Eyetopia Vision Insurance</h3>
+                <p>We're proud to be in-network with Eyetopia Vision Insurance, making it easy for patients to use their vision benefits directly with us. Enjoy seamless access to quality eyewear and eye care while maximizing your coverage.</p>
+            </div>
+            <div class="partnership-card">
+                <div class="partnership-logo">
+                    <img src="logos/essilor.svg" alt="Essilor Labs">
+                </div>
+                <h3>Essilor Labs</h3>
+                <p>As partners with Essilor Labs, we provide access to some of the world's most advanced lens technologies. From VariluxÂ® progressive lenses for seamless near-to-far vision to CrizalÂ® anti-reflective coatings for glare-free clarity and TransitionsÂ® light intelligent lenses that adapt to changing light, Essilor helps us deliver unmatched comfort, protection, and performance.</p>
+            </div>
+            <div class="partnership-card">
+                <div class="partnership-logo">
+                    <img src="logos/zeiss.svg" alt="Zeiss Labs">
+                </div>
+                <h3>Zeiss Labs</h3>
+                <p>Through our collaboration with Zeiss Labs, we offer precision-crafted premium lenses, trusted by millions worldwide. From ZEISS SmartLife® lenses designed for today's digital lifestyle to ZEISS DriveSafe® lenses that enhance clarity and reduce glare while driving, our patients enjoy innovation, accuracy, and uncompromising optical quality.</p>
+            </div>
+            <a href="https://www.carecredit.com/go/GAT965/?dtc=DS9X&sitecode=CCLBADS9X" target="_blank" class="partnership-card" style="text-decoration: none; display: block;">
+                <div class="partnership-logo">
+                    <img width="275" style="max-width:100%;" src="https://www.carecredit.com/sites/pc/image/flexible-financing-prequal-420x150.png"/>
+                </div>
+                <h3>CareCredit Financing</h3>
+                <p>We accept CareCredit — a healthcare credit card that makes it easy to get the eyewear you need now and pay over time with flexible financing options.</p>
+            </a>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="section-title">
+            <h2>Gallery</h2>
+            <p>Explore our premium eyewear collection</p>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery-grid" id="galleryGrid"></div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&#215;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
+        <div class="lightbox-counter" id="lightboxCounter">1 / 38</div>
+    </div>
+
+    <!-- Street View Showcase -->
+    <section id="street-showcase" class="street-showcase">
+        <div class="showcase-container">
+            <div class="showcase-image">
+                <img src="locationPhotos/streetViewAlt2.png" alt="Laredo Optical Co. Storefront">
+                <div class="showcase-caption">
+                    <h3>Visit Our Professional Location</h3>
+                    <p>Conveniently located at 1119 Fenwick Dr. Suite 103, serving the Laredo community</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="brands" class="brands">
+        <div class="section-title">
+            <h2>Our Brands</h2>
+            <p>Our showroom features top designers and trusted names in eyewear</p>
+        </div>
+        <div class="brands-grid">
+            <div class="brand-logo">
+                <img src="logos/rayban.png" alt="Ray-Ban">
+            </div>
+            <div class="brand-logo">
+                <img src="logos/oakley.png" alt="Oakley">
+            </div>
+            <div class="brand-logo">
+                <img src="logos/gucci.svg" alt="Gucci">
+            </div>
+            <div class="brand-logo">
+                <img src="logos/prada.svg" alt="Prada">
+            </div>
+            <div class="brand-logo">
+                <img src="logos/tomFord.svg" alt="Tom Ford">
+            </div>
+            <div class="brand-logo">
+                <img src="logos/versace.svg" alt="Versace">
+            </div>
+            <div class="brand-logo">
+                <img src="logos/chloe.png" alt="Chloe">
+            </div>
+            <div class="brand-logo">
+                <img src="logos/burberry.svg" alt="Burberry">
+            </div>
+            <div class="brand-logo">
+                <img src="logos/nike.png" alt="Nike">
+            </div>
+            <div class="brand-logo">
+                <img src="logos/miuMiu.svg" alt="Miu Miu">
+            </div>
+            <div class="brand-logo">
+                <img src="logos/michaelKors.png" alt="Michael Kors">
             </div>
         </div>
     </section>
@@ -1947,263 +1765,188 @@
             });
         });
 
-        // Gallery functionality
-        class Gallery {
-            constructor() {
-                this.currentIndex = 0;
-                this.totalSlides = 23;
-                this.slider = document.getElementById('gallerySlider');
-                this.isPlaying = true;
-                this.autoPlayInterval = null;
-                this.slidesPerView = window.innerWidth < 768 ? 1 : 4;
-                this.slideWidth = window.innerWidth < 768 ? 250 : 300;
-                
-                this.init();
+        // Masonry gallery - balanced columns by image height
+        (function() {
+            const photos = [
+                { index: 0, src: 'productPhotos/product1.jpg' },
+                { index: 1, src: 'productPhotos/product2.jpg' },
+                { index: 2, src: 'productPhotos/product3.jpg' },
+                { index: 3, src: 'productPhotos/product4.jpg' },
+                { index: 4, src: 'productPhotos/product5.jpg' },
+                { index: 5, src: 'productPhotos/product6.jpg' },
+                { index: 6, src: 'productPhotos/product7.jpg' },
+                { index: 7, src: 'productPhotos/product8.jpg' },
+                { index: 8, src: 'productPhotos/product9.jpg' },
+                { index: 9, src: 'productPhotos/product10.jpg' },
+                { index: 10, src: 'productPhotos/product11.jpg' },
+                { index: 11, src: 'productPhotos/product12.jpg' },
+                { index: 12, src: 'productPhotos/product13.jpg' },
+                { index: 13, src: 'productPhotos/product14.jpg' },
+                { index: 14, src: 'productPhotos/product15.jpg' },
+                { index: 15, src: 'productPhotos/product16.jpg' },
+                { index: 16, src: 'productPhotos/product17.jpg' },
+                { index: 17, src: 'productPhotos/product18.jpg' },
+                { index: 18, src: 'productPhotos/product19.jpg' },
+                { index: 19, src: 'productPhotos/product20.jpg' },
+                { index: 20, src: 'productPhotos/product21.jpg' },
+                { index: 21, src: 'productPhotos/product22.jpg' },
+                { index: 22, src: 'productPhotos/product23.jpg' },
+                { index: 23, src: 'productPhotos/product24.jpg' },
+                { index: 24, src: 'productPhotos/product25.jpg' },
+                { index: 25, src: 'productPhotos/product26.jpg' },
+                { index: 26, src: 'productPhotos/product27.jpg' },
+                { index: 27, src: 'productPhotos/product28.jpg' },
+                { index: 28, src: 'productPhotos/product29.jpg' },
+                { index: 29, src: 'productPhotos/product30.jpg' },
+                { index: 30, src: 'productPhotos/product31.jpg' },
+                { index: 31, src: 'productPhotos/product32.jpg' },
+                { index: 32, src: 'productPhotos/product33.jpg' },
+                { index: 33, src: 'productPhotos/product34.jpg' },
+                { index: 34, src: 'productPhotos/product35.jpg' },
+                { index: 35, src: 'productPhotos/product36.jpg' },
+                { index: 36, src: 'productPhotos/product37.jpg' },
+                { index: 37, src: 'productPhotos/product38.png' },
+            ];
+
+            function getColCount() {
+                if (window.innerWidth <= 600) return 2;
+                if (window.innerWidth <= 900) return 3;
+                return 4;
             }
 
-            init() {
-                this.createDots();
-                this.bindEvents();
-                this.startAutoPlay();
-                this.updateSlider();
-                this.updateDots();
-            }
+            function buildMasonry() {
+                const grid = document.getElementById('galleryGrid');
+                const colCount = getColCount();
 
-            createDots() {
-                const dotsContainer = document.getElementById('galleryDots');
-                const totalDots = Math.ceil(this.totalSlides / this.slidesPerView);
-                
-                for (let i = 0; i < totalDots; i++) {
-                    const dot = document.createElement('button');
-                    dot.className = 'gallery-dot';
-                    dot.addEventListener('click', () => this.goToSlide(i * this.slidesPerView));
-                    dotsContainer.appendChild(dot);
+                // Create column elements
+                grid.innerHTML = '';
+                const cols = [];
+                const colHeights = new Array(colCount).fill(0);
+
+                for (let i = 0; i < colCount; i++) {
+                    const col = document.createElement('div');
+                    col.className = 'gallery-col';
+                    grid.appendChild(col);
+                    cols.push(col);
                 }
-            }
 
-            bindEvents() {
-                document.getElementById('prevBtn').addEventListener('click', () => this.prevSlide());
-                document.getElementById('nextBtn').addEventListener('click', () => this.nextSlide());
-                document.getElementById('playPauseBtn').addEventListener('click', () => this.toggleAutoPlay());
+                // Load each image, measure its natural aspect ratio, place in shortest column
+                let loaded = 0;
+                const items = [];
 
-                // Add click events to slides for lightbox
-                document.querySelectorAll('.gallery-slide').forEach((slide, index) => {
-                    slide.addEventListener('click', () => this.openLightbox(index));
+                photos.forEach((photo, i) => {
+                    const item = document.createElement('div');
+                    item.className = 'gallery-item';
+                    item.dataset.index = photo.index;
+
+                    const img = document.createElement('img');
+                    img.src = photo.src;
+                    img.alt = `Eyewear Collection ${photo.index + 1}`;
+                    img.loading = 'lazy';
+
+                    item.appendChild(img);
+                    items.push({ item, img, index: i });
+
+                    img.onload = img.onerror = function() {
+                        loaded++;
+                        if (loaded === photos.length) placeAll();
+                    };
                 });
 
-                // Touch/swipe events for mobile
-                this.bindTouchEvents();
+                function placeAll() {
+                    // Reset column heights
+                    colHeights.fill(0);
+                    const colWidth = cols[0].offsetWidth || 280;
 
-                // Lightbox events
-                document.getElementById('lightboxClose').addEventListener('click', () => this.closeLightbox());
-                document.getElementById('lightboxPrev').addEventListener('click', () => this.lightboxPrev());
-                document.getElementById('lightboxNext').addEventListener('click', () => this.lightboxNext());
-                
-                // Close lightbox on background click
-                document.getElementById('lightbox').addEventListener('click', (e) => {
-                    if (e.target.id === 'lightbox') this.closeLightbox();
-                });
+                    items.forEach(({ item, img }) => {
+                        // Find shortest column
+                        const shortestCol = colHeights.indexOf(Math.min(...colHeights));
+                        cols[shortestCol].appendChild(item);
 
-                // Keyboard navigation
-                document.addEventListener('keydown', (e) => {
-                    const lightbox = document.getElementById('lightbox');
-                    if (lightbox.classList.contains('active')) {
-                        if (e.key === 'Escape') this.closeLightbox();
-                        if (e.key === 'ArrowLeft') this.lightboxPrev();
-                        if (e.key === 'ArrowRight') this.lightboxNext();
-                    }
-                });
-
-                // Responsive handling
-                window.addEventListener('resize', () => {
-                    this.slidesPerView = window.innerWidth < 768 ? 1 : 4;
-                    this.slideWidth = window.innerWidth < 768 ? 250 : 300;
-                    this.updateSlider();
-                });
-            }
-
-            bindTouchEvents() {
-                const sliderWrapper = document.querySelector('.gallery-slider-wrapper');
-                let startX = 0;
-                let startY = 0;
-                let currentX = 0;
-                let currentY = 0;
-                let isDragging = false;
-                let hasMoved = false;
-
-                const handleStart = (e) => {
-                    isDragging = true;
-                    hasMoved = false;
-                    this.stopAutoPlay();
-                    
-                    if (e.type === 'touchstart') {
-                        startX = e.touches[0].clientX;
-                        startY = e.touches[0].clientY;
-                    } else {
-                        startX = e.clientX;
-                        startY = e.clientY;
-                        e.preventDefault();
-                    }
-                };
-
-                const handleMove = (e) => {
-                    if (!isDragging) return;
-
-                    if (e.type === 'touchmove') {
-                        currentX = e.touches[0].clientX;
-                        currentY = e.touches[0].clientY;
-                    } else {
-                        currentX = e.clientX;
-                        currentY = e.clientY;
-                    }
-
-                    const diffX = Math.abs(currentX - startX);
-                    const diffY = Math.abs(currentY - startY);
-
-                    // Only handle horizontal swipes
-                    if (diffX > diffY && diffX > 10) {
-                        hasMoved = true;
-                        e.preventDefault();
-                    }
-                };
-
-                const handleEnd = (e) => {
-                    if (!isDragging) return;
-                    isDragging = false;
-
-                    const diffX = currentX - startX;
-                    const threshold = 50;
-
-                    if (hasMoved && Math.abs(diffX) > threshold) {
-                        if (diffX > 0) {
-                            this.prevSlide();
-                        } else {
-                            this.nextSlide();
-                        }
-                    }
-
-                    if (this.isPlaying) {
-                        this.startAutoPlay();
-                    }
-                };
-
-                // Touch events
-                sliderWrapper.addEventListener('touchstart', handleStart, { passive: false });
-                sliderWrapper.addEventListener('touchmove', handleMove, { passive: false });
-                sliderWrapper.addEventListener('touchend', handleEnd);
-
-                // Mouse events for desktop drag
-                sliderWrapper.addEventListener('mousedown', handleStart);
-                sliderWrapper.addEventListener('mousemove', handleMove);
-                sliderWrapper.addEventListener('mouseup', handleEnd);
-                sliderWrapper.addEventListener('mouseleave', handleEnd);
-
-                // Prevent default drag behavior on images
-                sliderWrapper.addEventListener('dragstart', (e) => e.preventDefault());
-            }
-
-            updateSlider() {
-                const translateX = -this.currentIndex * (this.slideWidth + 32); // 32px = 2rem margin
-                this.slider.style.transform = `translateX(${translateX}px)`;
-            }
-
-            updateDots() {
-                const dots = document.querySelectorAll('.gallery-dot');
-                const activeDot = Math.floor(this.currentIndex / this.slidesPerView);
-                
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === activeDot);
-                });
-            }
-
-            nextSlide() {
-                this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
-                this.updateSlider();
-                this.updateDots();
-            }
-
-            prevSlide() {
-                this.currentIndex = this.currentIndex === 0 ? this.totalSlides - 1 : this.currentIndex - 1;
-                this.updateSlider();
-                this.updateDots();
-            }
-
-            goToSlide(index) {
-                this.currentIndex = Math.min(index, this.totalSlides - 1);
-                this.updateSlider();
-                this.updateDots();
-            }
-
-            startAutoPlay() {
-                this.autoPlayInterval = setInterval(() => {
-                    this.nextSlide();
-                }, 4000);
-            }
-
-            stopAutoPlay() {
-                if (this.autoPlayInterval) {
-                    clearInterval(this.autoPlayInterval);
-                    this.autoPlayInterval = null;
+                        // Estimate rendered height from aspect ratio
+                        const ratio = img.naturalHeight / (img.naturalWidth || 1);
+                        colHeights[shortestCol] += colWidth * ratio + 12; // +12 for gap
+                    });
                 }
+
+                // Fallback: place sequentially if images don't fire onload (cached)
+                setTimeout(() => {
+                    if (loaded < photos.length) {
+                        items.forEach(({ item }, i) => {
+                            const col = i % colCount;
+                            cols[col].appendChild(item);
+                        });
+                    }
+                }, 800);
             }
 
-            toggleAutoPlay() {
-                const button = document.getElementById('playPauseBtn');
-                
-                if (this.isPlaying) {
-                    this.stopAutoPlay();
-                    button.textContent = 'Play Auto-Play';
-                    this.isPlaying = false;
-                } else {
-                    this.startAutoPlay();
-                    button.textContent = 'Pause Auto-Play';
-                    this.isPlaying = true;
-                }
+            document.addEventListener('DOMContentLoaded', buildMasonry);
+
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(buildMasonry, 200);
+            });
+        })();
+
+
+        (function() {
+            const TOTAL = 38;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+            let currentIndex = 0;
+
+            const srcOverrides = { 37: 'productPhotos/product38.png' };
+            function getSrc(index) {
+                return srcOverrides[index] || `productPhotos/product${index + 1}.jpg`;
             }
 
-            openLightbox(index) {
-                const lightbox = document.getElementById('lightbox');
-                const lightboxImage = document.getElementById('lightboxImage');
-                const lightboxCounter = document.getElementById('lightboxCounter');
-                
-                lightboxImage.src = `productPhotos/product${index + 1}.jpg`;
-                lightboxImage.alt = `Product ${index + 1}`;
-                lightboxCounter.textContent = `${index + 1} / ${this.totalSlides}`;
-                
+            function openLightbox(index) {
+                currentIndex = index;
+                lightboxImage.src = getSrc(index);
+                lightboxImage.alt = `Eyewear Collection ${index + 1}`;
+                lightboxCounter.textContent = `${index + 1} / ${TOTAL}`;
                 lightbox.classList.add('active');
-                lightbox.dataset.currentIndex = index;
-                
-                // Prevent body scrolling
                 document.body.style.overflow = 'hidden';
             }
 
-            closeLightbox() {
-                const lightbox = document.getElementById('lightbox');
+            function closeLightbox() {
                 lightbox.classList.remove('active');
-                
-                // Restore body scrolling
                 document.body.style.overflow = '';
             }
 
-            lightboxPrev() {
-                const lightbox = document.getElementById('lightbox');
-                let currentIndex = parseInt(lightbox.dataset.currentIndex);
-                currentIndex = currentIndex === 0 ? this.totalSlides - 1 : currentIndex - 1;
-                this.openLightbox(currentIndex);
+            function prev() {
+                currentIndex = currentIndex === 0 ? TOTAL - 1 : currentIndex - 1;
+                openLightbox(currentIndex);
             }
 
-            lightboxNext() {
-                const lightbox = document.getElementById('lightbox');
-                let currentIndex = parseInt(lightbox.dataset.currentIndex);
-                currentIndex = (currentIndex + 1) % this.totalSlides;
-                this.openLightbox(currentIndex);
+            function next() {
+                currentIndex = (currentIndex + 1) % TOTAL;
+                openLightbox(currentIndex);
             }
-        }
 
-        // Initialize gallery when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            new Gallery();
-        });
+            // Event delegation — works with dynamically built masonry
+            document.getElementById('galleryGrid').addEventListener('click', (e) => {
+                const item = e.target.closest('.gallery-item');
+                if (item) openLightbox(parseInt(item.dataset.index));
+            });
+
+            document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+            document.getElementById('lightboxPrev').addEventListener('click', prev);
+            document.getElementById('lightboxNext').addEventListener('click', next);
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') prev();
+                if (e.key === 'ArrowRight') next();
+            });
+        })();
 
         // Add scroll effect to header
         let lastScroll = 0;
