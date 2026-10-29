@@ -571,6 +571,40 @@
             padding: 3rem 2rem 2rem;
         }
 
+        .location-showcase .showcase-image {
+            display: grid;
+            grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--color-charcoal);
+        }
+
+        .store-video {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 9 / 16;
+            background: #000000;
+            object-fit: contain;
+        }
+
+        .location-showcase .showcase-caption {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(1.5rem, 4vw, 4rem);
+            background: var(--color-charcoal);
+        }
+
+        @media (max-width: 768px) {
+            .location-showcase .showcase-image {
+                grid-template-columns: minmax(0, 1fr);
+                max-width: 360px;
+                margin: 0 auto;
+            }
+        }
+
         .showcase-caption h3 {
             font-family: var(--font-display);
             font-size: 1.8rem;
@@ -1512,7 +1546,11 @@
     <section id="location-showcase" class="location-showcase">
         <div class="showcase-container">
             <div class="showcase-image">
-                <img src="locationPhotos/mainHallway.png" alt="Spacious Interior - Main Hallway">
+                <video class="store-video" controls autoplay muted loop playsinline preload="auto" poster="locationPhotos/store-interior-preview.jpg" aria-label="Video tour inside Laredo Optical Co.">
+                    <source src="locationPhotos/store-interior-web.webm" type="video/webm">
+                    <source src="locationPhotos/store-interior-web.mp4" type="video/mp4">
+                    Your browser does not support embedded video. <a href="locationPhotos/store-interior-web.mp4">Watch our store tour</a>.
+                </video>
                 <div class="showcase-caption">
                     <h3>Step Inside Our Store</h3>
                     <p>Browse our collections in a comfortable, well-lit environment designed for your convenience</p>
@@ -2096,6 +2134,31 @@
             
             lastScroll = currentScroll;
         });
+    </script>
+    <script>
+        // Set the muted property before starting playback for browser autoplay policies.
+        (() => {
+            const video = document.querySelector('.store-video');
+            if (!video) return;
+            video.muted = true;
+            video.defaultMuted = true;
+            video.autoplay = true;
+            video.loop = true;
+            const startVideo = () => {
+                video.play().catch(() => {
+                    // Keep native controls available if the browser requires a tap.
+                });
+            };
+            video.addEventListener('loadeddata', startVideo, { once: true });
+            video.addEventListener('canplay', startVideo, { once: true });
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden) startVideo();
+            });
+            new IntersectionObserver(entries => {
+                if (entries.some(entry => entry.isIntersecting)) startVideo();
+            }).observe(video);
+            startVideo();
+        })();
     </script>
 </body>
 </html>
