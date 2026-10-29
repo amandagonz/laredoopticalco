@@ -571,7 +571,8 @@
             padding: 3rem 2rem 2rem;
         }
 
-        .location-showcase .showcase-image {
+        .location-showcase .showcase-image,
+        .street-showcase .showcase-image {
             display: grid;
             grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
             max-width: 1000px;
@@ -588,7 +589,16 @@
             object-fit: contain;
         }
 
-        .location-showcase .showcase-caption {
+        .street-showcase .showcase-image {
+            grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+        }
+
+        .professional-location-video {
+            aspect-ratio: 270 / 467;
+        }
+
+        .location-showcase .showcase-caption,
+        .street-showcase .showcase-caption {
             position: relative;
             display: flex;
             flex-direction: column;
@@ -598,7 +608,8 @@
         }
 
         @media (max-width: 768px) {
-            .location-showcase .showcase-image {
+            .location-showcase .showcase-image,
+            .street-showcase .showcase-image {
                 grid-template-columns: minmax(0, 1fr);
                 max-width: 360px;
                 margin: 0 auto;
@@ -1787,11 +1798,15 @@
     <section id="street-showcase" class="street-showcase">
         <div class="showcase-container">
             <div class="showcase-image">
-                <img src="locationPhotos/streetViewAlt2.png" alt="Laredo Optical Co. Storefront">
                 <div class="showcase-caption">
                     <h3>Visit Our Professional Location</h3>
                     <p>Conveniently located at 1119 Fenwick Dr. Suite 103, serving the Laredo community</p>
                 </div>
+                <video class="store-video professional-location-video" controls autoplay muted loop playsinline preload="auto" poster="locationPhotos/professional-location-preview.jpg" aria-label="Video of Laredo Optical Co.'s professional location">
+                    <source src="locationPhotos/professional-location.webm" type="video/webm">
+                    <source src="locationPhotos/professional-location.mp4" type="video/mp4">
+                    Your browser does not support embedded video. <a href="locationPhotos/professional-location.mp4">Watch our location video</a>.
+                </video>
             </div>
         </div>
     </section>
@@ -2137,9 +2152,7 @@
     </script>
     <script>
         // Set the muted property before starting playback for browser autoplay policies.
-        (() => {
-            const video = document.querySelector('.store-video');
-            if (!video) return;
+        document.querySelectorAll('.store-video').forEach(video => {
             video.muted = true;
             video.defaultMuted = true;
             video.autoplay = true;
@@ -2158,7 +2171,7 @@
                 if (entries.some(entry => entry.isIntersecting)) startVideo();
             }).observe(video);
             startVideo();
-        })();
+        });
     </script>
 </body>
 </html>
