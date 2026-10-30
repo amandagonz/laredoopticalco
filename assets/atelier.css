@@ -1,0 +1,177 @@
+/* Ivory, ink and brushed gold, inspired by the supplied brand reference. */
+:root {
+    --paper: #f6f4ee;
+    --paper-deep: #eeebe2;
+    --ink: #0c1b30;
+    --gold: #b18a43;
+    --copy: #62666b;
+    --line: #dcd5c6;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --lux-gold: var(--gold);
+    --lux-line: var(--line);
+    --lux-muted: var(--copy);
+    --lux-metal: var(--gold);
+    --color-text-primary: var(--ink);
+    --color-text-secondary: var(--copy);
+    --shadow-light: 0 8px 24px #0c1b3007;
+    --shadow-medium: 0 12px 32px #0c1b3010;
+    --shadow-deep: 0 18px 40px #0c1b3015;
+}
+body { background: var(--paper); color: var(--copy); }
+::selection { background: #ded1b3; color: var(--ink); }
+h1, h2, h3 { font-family: var(--font-display); }
+.header { background: #f6f4eef5; box-shadow: none; border-bottom: 1px solid var(--line); height: 94px; }
+.nav-container { max-width: 1360px; gap: 2rem; }
+.logo-container { height: 70px; flex-shrink: 0; }
+.logo-img { height: 70px; width: auto; filter: none; }
+.nav-menu { gap: clamp(.8rem, 1.5vw, 1.5rem); }
+.nav-menu a { color: var(--ink); font-size: .7rem; letter-spacing: .06em; }
+.nav-menu a:hover { color: #85652e; }
+.menu-toggle span { background: var(--ink); }
+.black-friday-banner { background: var(--ink); color: var(--paper); border-bottom-color: var(--gold); }
+.black-friday-label, .black-friday-shop { color: var(--paper); }
+.black-friday-shop { border-bottom-color: var(--gold); }
+.hero { height: auto; min-height: 570px; background: var(--paper); border-bottom: 1px solid var(--line); padding: 90px 0 80px; }
+.hero-bg, .hero::before, .hero::after { display: none; }
+.hero-content { gap: 0; max-width: 1200px; }
+.hero-logo { flex-direction: column; animation: none; }
+.hero-logo img { width: min(520px, 82vw); max-width: none; max-height: none; height: auto; opacity: 1; filter: brightness(0) saturate(100%) invert(9%) sepia(28%) saturate(1510%) hue-rotate(176deg); }
+.hero-eyebrow { color: #77736a; font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; margin-bottom: 2.5rem; }
+.hero h1 { color: var(--ink); font-size: clamp(2rem, 4.3vw, 4rem); font-weight: 400; letter-spacing: .12em; line-height: 1.35; text-transform: uppercase; margin: 0; }
+.hero-divider { width: 34px; height: 40px; margin: 12px auto 5px; background: url('diamond-cursor.svg') center / contain no-repeat; opacity: 1; animation: none; }
+.hero-text { animation: none; }
+.hero-text .tagline { color: var(--ink); font-family: var(--font-display); font-size: clamp(2rem, 4.3vw, 4rem); font-weight: 400; letter-spacing: .12em; line-height: 1.35; text-transform: uppercase; margin: 0; padding: 0; border: 0; }
+.hero-description { color: var(--copy); font-size: .85rem; letter-spacing: .02em; margin: 1.5rem auto 0; }
+.hero-buttons { animation: none; margin-top: 2rem; }
+.button { border-radius: 0; padding: 1rem 1.8rem; font-size: .68rem; letter-spacing: .15em; box-shadow: none; }
+.button-primary { background: var(--ink); color: var(--paper); border: 1px solid var(--ink); }
+.button-primary:hover { background: #1c3552; box-shadow: none; }
+.button-secondary { border: 1px solid #b6a783; color: var(--ink); background: transparent; }
+.button-secondary:hover { background: var(--paper-deep); color: var(--ink); box-shadow: none; }
+.about, .advantages, .eyewear, .services, .eye-exam, .partnerships, .gallery, .brands, .contact { background: var(--paper); padding: 6rem 2rem; }
+.eyewear, .eye-exam, .gallery { background: var(--paper-deep); }
+.location-showcase, .counter-showcase, .street-showcase { background: var(--paper); padding: 3rem 2rem 5rem; }
+.about::before, .advantages::before, .eyewear::before, .services::before, .eye-exam::before, .partnerships::before, .gallery::before, .brands::before, .location-showcase::before, .counter-showcase::before, .street-showcase::before, .contact::after { background: var(--line); height: 1px; }
+section[id] .section-title h2, .eye-exam h2, .contact .section-title h2 { color: var(--ink); font-size: clamp(2rem, 3.3vw, 3rem); font-weight: 400; letter-spacing: .015em; }
+section[id] .section-title p, .eye-exam p, .contact .section-title p { color: var(--copy); font-size: .92rem; line-height: 1.8; }
+.section-title { margin-bottom: 3.5rem; }
+section[id] .section-title::after { content: ''; display: block; width: 18px; height: 22px; margin: 1.5rem auto 0; background: url('diamond-cursor.svg') center / contain no-repeat; }
+.about-text { max-width: 880px; margin: auto; color: var(--copy); font-size: 1rem; line-height: 2; text-align: center; }
+.about-text strong { color: var(--ink); font-weight: 500; }
+.card, .eye-exam-card, .partnership-card { background: #faf9f5; border: 1px solid var(--line); border-radius: 2px; box-shadow: none; padding: 2.5rem 2rem; }
+.card::before, .card:hover::after { display: none; }
+.card:hover, .eye-exam-card:hover, .partnership-card:hover { border-color: #b6a783; box-shadow: var(--shadow-medium); transform: translateY(-4px); }
+.card h3, .eye-exam-card h3, .partnership-card h3 { color: var(--ink); font-size: 1.5rem; font-weight: 400; line-height: 1.3; }
+.card p, .eye-exam-card p, .partnership-card p { color: var(--copy); font-size: .9rem; line-height: 1.85; }
+.card-icon { width: 60px; height: 60px; }
+.card-icon img, .card:hover .card-icon img { filter: brightness(0) saturate(100%) invert(53%) sepia(35%) saturate(598%) hue-rotate(1deg) brightness(94%); }
+.service-icon { background: transparent; color: #957030; border: 1px solid #d8ccb2; box-shadow: none; border-radius: 50%; }
+.partnership-logo { background: transparent; }
+.showcase-image { border-radius: 2px; border: 1px solid var(--line); box-shadow: none; }
+.showcase-image:hover { transform: none; box-shadow: var(--shadow-medium); }
+.location-showcase .showcase-image, .street-showcase .showcase-image, .location-showcase .showcase-caption, .street-showcase .showcase-caption { background: var(--paper-deep); }
+.showcase-caption h3 { color: var(--ink); letter-spacing: .01em; font-weight: 400; }
+.showcase-caption p { color: var(--copy); font-size: .95rem; line-height: 1.9; }
+.showcase-caption h3::after { content: ''; display: block; width: 18px; height: 22px; margin-top: 1.25rem; background: url('diamond-cursor.svg') center / contain no-repeat; }
+.counter-showcase .showcase-caption { background: var(--paper-deep); position: relative; padding: 2rem 2.5rem; }
+.counter-showcase .showcase-image { max-width: 1000px; margin: auto; }
+.gallery-item { background: #faf9f5; border: 1px solid #c9b994; border-radius: 2px; box-shadow: 0 20px 45px #0c1b3018; }
+.gallery-item img { background: var(--paper); border-radius: 0; }
+.gallery-controls { color: var(--ink); }
+.gallery-controls button { color: var(--ink); border-color: #b6a783; border-radius: 0; }
+.gallery-controls button:hover { background: var(--ink); color: var(--paper); }
+.brand-logo { background: #faf9f5; border-color: var(--line); border-radius: 0; box-shadow: none; }
+.contact { background-image: none; color: var(--copy); border-top: 1px solid var(--line); }
+.contact::before { display: none; }
+.contact-item h3 { color: var(--ink); font-weight: 400; }
+.contact-item p { color: var(--copy); font-size: .9rem; line-height: 1.8; }
+.contact-item a { color: #81602b; text-decoration: underline; text-underline-offset: 4px; }
+.contact-item a:hover { color: var(--ink); }
+.social-link { border-color: var(--line); background: transparent; }
+.social-link img { filter: brightness(0) saturate(100%) invert(9%) sepia(28%) saturate(1510%) hue-rotate(176deg); }
+.social-link:hover { background: #e7dfcf; }
+.social-link:hover img { filter: brightness(0); }
+.map-container { border: 1px solid var(--line); border-radius: 2px; }
+.site-footer { padding: 2rem; border-top: 1px solid var(--line); text-align: center; color: var(--ink); font-family: var(--font-display); letter-spacing: .15em; font-size: .75rem; }
+.site-footer span { color: #967133; font-family: var(--font-primary); display: block; font-size: .6rem; margin-top: .7rem; text-transform: uppercase; letter-spacing: .2em; }
+.diamond-cursor { display: none; position: fixed; left: 0; top: 0; width: 30px; height: 36px; margin: -18px 0 0 -15px; pointer-events: none; z-index: 2147483647; }
+.diamond-cursor img { width: 100%; height: 100%; transition: transform 180ms ease; filter: drop-shadow(0 1px 1px #f6f4ee99); }
+.diamond-cursor.is-link img { transform: scale(1.2) rotate(90deg); }
+@media (hover: hover) and (pointer: fine) {
+    html, body, body a, body button, body summary, body label[for], body [role="button"] { cursor: url('diamond-cursor.svg') 15 18, auto; }
+    html.diamond-active, html.diamond-active body, html.diamond-active body * { cursor: none; }
+    html.diamond-active .diamond-cursor { display: block; }
+    html.diamond-active body input, html.diamond-active body textarea, html.diamond-active body [contenteditable="true"] { cursor: text; }
+    html.diamond-active body video, html.diamond-active body iframe { cursor: auto; }
+}
+@media (max-width: 1100px) and (min-width: 769px) {
+    .header { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .nav-container { gap: 1rem; }
+    .nav-menu { gap: .65rem; }
+    .nav-menu a { font-size: .62rem; }
+}
+@media (max-width: 768px) {
+    .header { height: 78px; padding: .5rem 1.25rem; }
+    .logo-container, .logo-img { height: 60px; }
+    .nav-menu { background: var(--paper); top: 100%; }
+    .nav-menu a { color: var(--ink); font-size: .85rem; }
+    .hero { min-height: 490px; padding: 65px 0; }
+    .hero-content { padding: 0 1.25rem; }
+    .hero-text .tagline { font-size: clamp(1.8rem, 6.8vw, 2.8rem); letter-spacing: .09em; }
+    .hero-eyebrow { font-size: .58rem; margin-bottom: 2rem; }
+    .hero-description { max-width: 270px; line-height: 1.8; }
+    .hero-buttons { gap: .65rem; }
+    .button { padding: .9rem 1.15rem; font-size: .62rem; }
+    .about, .advantages, .eyewear, .services, .eye-exam, .partnerships, .gallery, .brands, .contact { padding: 3.75rem 1.25rem; }
+    .location-showcase, .counter-showcase, .street-showcase { padding: 1.5rem 1.25rem 3rem; }
+    .card, .eye-exam-card, .partnership-card { padding: 2rem 1.5rem; }
+    .contact-content { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .diamond-cursor img, .card, .eye-exam-card, .partnership-card { transition: none; }
+}
+
+/* Navy feature sections balance the ivory sections and warm gold details. */
+#location-showcase, #eyewear, #counter-showcase, #gallery, #contact {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: #ffffff24;
+}
+#location-showcase .showcase-image, #location-showcase .showcase-caption,
+#counter-showcase .showcase-caption { background: #142740; }
+#location-showcase .showcase-image, #counter-showcase .showcase-image,
+#contact .map-container { border-color: #b18a4366; }
+section#eyewear .section-title h2, section#gallery .section-title h2,
+section#contact .section-title h2, #location-showcase .showcase-caption h3,
+#counter-showcase .showcase-caption h3, #contact .contact-item h3 {
+    color: var(--paper);
+}
+section#eyewear .section-title p, section#gallery .section-title p,
+section#contact .section-title p, #location-showcase .showcase-caption p,
+#counter-showcase .showcase-caption p, #contact .contact-item p {
+    color: #d3dbe4;
+}
+#eyewear .card { background: #142740; border-color: #ffffff24; }
+#eyewear .card h3 { color: var(--paper); }
+#eyewear .card p { color: #d3dbe4; }
+#eyewear .card:hover { border-color: var(--gold); }
+#gallery .gallery-controls { color: var(--paper); }
+#gallery .gallery-controls button { color: #e2c589; border-color: #b18a4380; }
+#gallery .gallery-controls button:hover { background: #e2c589; color: var(--ink); }
+#contact .contact-item a { color: #e2c589; }
+#contact .contact-item a:hover { color: #fff4d6; }
+#contact .social-link { border-color: #b18a4380; }
+#contact .social-link img { filter: brightness(0) invert(1); }
+#contact .social-link:hover { background: #e2c589; }
+#contact .social-link:hover img { filter: brightness(0); }
+.eye-exam > h2::after { content: ''; display: block; width: 18px; height: 22px; margin: 1.5rem auto; background: url('diamond-cursor.svg') center / contain no-repeat; }
+
+/* Navy opening with a light logo and lettering. */
+#home { background: var(--ink); border-bottom-color: #ffffff24; }
+#home .hero-logo img { filter: brightness(0) invert(1); }
+#home .tagline { color: var(--paper); }
+#home .hero-eyebrow, #home .hero-description { color: #d3dbe4; }
+#home .button-primary { background: #e2c589; border-color: #e2c589; color: var(--ink); }
+#home .button-primary:hover { background: #efdab1; border-color: #efdab1; }
+#home .button-secondary { color: var(--paper); border-color: #b18a4380; }
+#home .button-secondary:hover { background: #142740; border-color: var(--gold); }
