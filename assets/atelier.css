@@ -32,13 +32,15 @@ h1, h2, h3 { font-family: var(--font-display); }
 .black-friday-label, .black-friday-shop { color: var(--paper); }
 .black-friday-shop { border-bottom-color: var(--gold); }
 .hero { height: auto; min-height: 570px; background: var(--paper); border-bottom: 1px solid var(--line); padding: 90px 0 80px; }
-.hero-bg, .hero::before, .hero::after { display: none; }
+.hero-bg { display: block; }
+.hero::before { display: block; background: linear-gradient(90deg, rgba(12, 27, 48, .88), rgba(12, 27, 48, .80), rgba(12, 27, 48, .88)); }
+.hero::after { display: none; }
 .hero-content { gap: 0; max-width: 1200px; }
 .hero-logo { flex-direction: column; animation: none; }
 .hero-logo img { width: min(520px, 82vw); max-width: none; max-height: none; height: auto; opacity: 1; filter: brightness(0) saturate(100%) invert(9%) sepia(28%) saturate(1510%) hue-rotate(176deg); }
 .hero-eyebrow { color: #77736a; font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; margin-bottom: 2.5rem; }
 .hero h1 { color: var(--ink); font-size: clamp(2rem, 4.3vw, 4rem); font-weight: 400; letter-spacing: .12em; line-height: 1.35; text-transform: uppercase; margin: 0; }
-.hero-divider { width: 34px; height: 40px; margin: 12px auto 5px; background: url('diamond-cursor.svg') center / contain no-repeat; opacity: 1; animation: none; }
+.hero-divider { width: 100px; height: 1px; margin: 28px auto; background: var(--gold); opacity: 1; animation: none; }
 .hero-text { animation: none; }
 .hero-text .tagline { color: var(--ink); font-family: var(--font-display); font-size: clamp(2rem, 4.3vw, 4rem); font-weight: 400; letter-spacing: .12em; line-height: 1.35; text-transform: uppercase; margin: 0; padding: 0; border: 0; }
 .hero-description { color: var(--copy); font-size: .85rem; letter-spacing: .02em; margin: 1.5rem auto 0; }
@@ -175,3 +177,62 @@ section#contact .section-title p, #location-showcase .showcase-caption p,
 #home .button-primary:hover { background: #efdab1; border-color: #efdab1; }
 #home .button-secondary { color: var(--paper); border-color: #b18a4380; }
 #home .button-secondary:hover { background: #142740; border-color: var(--gold); }
+
+.phone-number { white-space: nowrap; }
+
+/* Tie the embedded map into the midnight navy and gold contact section. */
+#contact .map-container {
+    background: var(--ink);
+    border: 1px solid var(--gold);
+    padding: 5px;
+    box-shadow: 0 12px 32px #00000026;
+}
+#contact .map-container iframe {
+    display: block;
+    filter: grayscale(1) invert(1) sepia(.35) saturate(1.6) hue-rotate(173deg) brightness(.9) contrast(.9);
+}
+
+#eye-exam .eye-exam-card {
+    background: var(--ink);
+    border-color: #b18a4380;
+}
+#eye-exam .eye-exam-card h3 { color: var(--paper); }
+#eye-exam .eye-exam-card p { color: #d3dbe4; }
+#eye-exam .eye-exam-card strong { color: #e2c589; }
+#eye-exam .eye-exam-card:hover { border-color: var(--gold); }
+
+/* One continuous navy area for the store tour and its caption. */
+#location-showcase .showcase-image,
+#location-showcase .showcase-caption { background: transparent; }
+#location-showcase .showcase-image,
+#location-showcase .showcase-image:hover {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Consistent, uninterrupted navy backgrounds for the location features. */
+#street-showcase { background: var(--ink); }
+#counter-showcase .showcase-image,
+#counter-showcase .showcase-caption,
+#street-showcase .showcase-image,
+#street-showcase .showcase-caption { background: transparent; }
+#counter-showcase .showcase-image,
+#counter-showcase .showcase-image:hover,
+#street-showcase .showcase-image,
+#street-showcase .showcase-image:hover {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+#street-showcase .showcase-caption h3 { color: var(--paper); }
+#street-showcase .showcase-caption p { color: #d3dbe4; }
+
+#partnerships .partnership-card {
+    background: var(--ink);
+    border-color: #b18a4380;
+}
+#partnerships .partnership-card h3 { color: var(--paper); }
+#partnerships .partnership-card p { color: #d3dbe4; }
+#partnerships .partnership-card:hover { border-color: var(--gold); }
+#partnerships .partnership-logo { background: var(--paper); }
