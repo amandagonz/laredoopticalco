@@ -236,3 +236,32 @@ section#contact .section-title p, #location-showcase .showcase-caption p,
 #partnerships .partnership-card p { color: #d3dbe4; }
 #partnerships .partnership-card:hover { border-color: var(--gold); }
 #partnerships .partnership-logo { background: var(--paper); }
+
+/* Matched offer panels framed by moving designer names above and below. */
+.black-friday-banner {
+    position: relative;
+    isolation: isolate;
+    padding: 3.5rem clamp(2.5rem, 5vw, 6rem);
+    column-gap: clamp(1rem, 3vw, 4rem);
+}
+.banner-side { display: flex; flex-direction: column; align-items: center; gap: .8rem; min-width: 0; }
+.banner-side-left { grid-column: 1; grid-row: 1 / 3; }
+.banner-side-right { grid-column: 3; grid-row: 1 / 3; }
+.banner-side .black-friday-label, .banner-side .black-friday-shop {
+    font-family: var(--font-primary);
+    font-size: clamp(1rem, 2.2vw, 2rem);
+    font-weight: 700;
+    letter-spacing: .08em;
+    line-height: 1.3;
+    border: 0;
+    padding: 0;
+    align-self: auto;
+}
+.banner-detail { color: #e2c589; font-size: clamp(.7rem, 1.1vw, .95rem); font-weight: 600; letter-spacing: .12em; line-height: 1.5; }
+.banner-brands { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; fill: #e2c589; font: 500 10px var(--font-primary); letter-spacing: 1.2px; }
+.banner-brands text { text-transform: none; }
+@media (max-width: 768px) {
+    .black-friday-banner { padding: 3rem 2.5rem; gap: 1.2rem; }
+    .banner-side { gap: .4rem; }
+    .banner-side .black-friday-label, .banner-side .black-friday-shop { font-size: clamp(1rem, 4vw, 1.4rem); }
+}

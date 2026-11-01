@@ -1685,12 +1685,15 @@
 </head>
 <body>
     <aside class="black-friday-banner" aria-label="Black Friday: 50% off all designer frames, November 23–25, in-store only">
-        <span class="black-friday-label">Black Friday</span>
+        <svg class="banner-brands" role="img" aria-label="Tom Ford, Burberry, Gucci, YSL, Chloé, Versace, Ray-Ban, Oakley, Tiffany &amp; Co."></svg>
+        <div class="banner-side banner-side-left">
+            <span class="black-friday-label">Black Friday</span>
+            <span class="banner-detail">Nov 23–25</span>
+        </div>
         <strong class="black-friday-offer"><span class="black-friday-discount">50% OFF</span></strong>
-        <span class="black-friday-shop">Shop all designer frames</span>
-        <div class="black-friday-details">
-            <span>November 23–25</span>
-            <span>In-store only</span>
+        <div class="banner-side banner-side-right">
+            <span class="black-friday-shop">Shop all designer frames</span>
+            <span class="banner-detail">In-store only</span>
         </div>
     </aside>
 
@@ -1710,13 +1713,13 @@
 
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#street-showcase">Visit Our Location</a></li>
+                <li><a href="#partnerships">Partnerships</a></li>
                 <li><a href="#advantages">Our Advantages</a></li>
                 <li><a href="#eyewear">Eyewear</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#partnerships">Partnerships</a></li>
-                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#brands">Our Brands</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
@@ -1741,34 +1744,76 @@
         </div>
     </section>
 
-    <section id="about" class="about">
-        <div class="section-title">
-            <h2>About Us</h2>
-            <p>Redefining the eyewear experience through style, quality, and personalized service</p>
-        </div>
-        <div class="about-content">
-            <div class="about-text">
-                <p>At Laredo Optical Co. we redefine the eyewear experience by combining style, quality, and personalized service in a premier optical retail setting. Our curated collection features an extensive range of eyeglasses and sunglasses, from budget-friendly essentials to high-end luxury frames from globally renowned designers.</p>
-                <p>Whether you're seeking everyday vision solutions or a bold fashion statement, we provide eyewear that fits every lifestyle and price point, without compromising on craftsmanship or care. Our eye care professionals offer expert fittings and tailored consultations to ensure that each customer leaves with perfect vision and confident style.</p>
-                <p><strong>Experience Laredo Optical Co., where timeless elegance meets affordable eyewear.</strong></p>
+    <section id="eye-exam" class="eye-exam">
+        <h2>Time for an Eye Exam?</h2>
+        <div class="eye-exam-content">
+            <p>Need an updated glasses prescription? We've partnered with our affiliated practice, Eye Care of Laredo, to provide comprehensive eye exams and vision health services, conveniently located just steps away in Suite 101.<br>Call <span class="phone-number">(956) 652-4321</span> to book your appointment today.</p>
+
+            <div class="eye-exam-grid">
+                <div class="eye-exam-card">
+                    <h3>Book an Eye Exam</h3>
+                    <p>Eye Care of Laredo - Suite 101</p>
+                    <p><strong>Call: <span class="phone-number">(956) 652-4321</span></strong></p>
+                </div>
+                <div class="eye-exam-card">
+                    <h3>Already Have a Prescription?</h3>
+                    <p>Bring us a copy or fax to:</p>
+                    <p><strong>(832) 895-6109</strong></p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Location Showcase Section -->
-    <section id="location-showcase" class="location-showcase">
+    <section id="street-showcase" class="street-showcase">
         <div class="showcase-container">
             <div class="showcase-image">
-                <video class="store-video" controls autoplay muted loop playsinline preload="auto" poster="locationPhotos/store-interior-preview.jpg" aria-label="Video tour inside Laredo Optical Co.">
-                    <source src="locationPhotos/store-interior-web.webm" type="video/webm">
-                    <source src="locationPhotos/store-interior-web.mp4" type="video/mp4">
-                    Your browser does not support embedded video. <a href="locationPhotos/store-interior-web.mp4">Watch our store tour</a>.
-                </video>
                 <div class="showcase-caption">
-                    <h3>Step Inside Our Store</h3>
-                    <p>Browse our collections in a comfortable, well-lit environment designed for your convenience</p>
+                    <h3>Visit Our Professional Location</h3>
+                    <p>Conveniently located at 1119 Fenwick Dr. Suite 103, serving the Laredo community</p>
                 </div>
+                <video class="store-video professional-location-video" controls autoplay muted loop playsinline preload="auto" poster="locationPhotos/professional-location-preview.jpg" aria-label="Video of Laredo Optical Co.'s professional location">
+                    <source src="locationPhotos/professional-location.webm" type="video/webm">
+                    <source src="locationPhotos/professional-location.mp4" type="video/mp4">
+                    Your browser does not support embedded video. <a href="locationPhotos/professional-location.mp4">Watch our location video</a>.
+                </video>
             </div>
+        </div>
+    </section>
+
+    <section id="partnerships" class="partnerships">
+        <div class="section-title">
+            <h2>Partnerships</h2>
+            <p>Working with industry leaders to serve you better</p>
+        </div>
+        <div class="partnerships-grid">
+            <div class="partnership-card">
+                <div class="partnership-logo">
+                    <img src="logos/eyeTopia.svg" alt="Eyetopia Vision Insurance">
+                </div>
+                <h3>Eyetopia Vision Insurance</h3>
+                <p>We're proud to be in-network with Eyetopia Vision Insurance, making it easy for patients to use their vision benefits directly with us. Enjoy seamless access to quality eyewear and eye care while maximizing your coverage.</p>
+            </div>
+            <div class="partnership-card">
+                <div class="partnership-logo">
+                    <img src="logos/essilor.svg" alt="Essilor Labs">
+                </div>
+                <h3>Essilor Labs</h3>
+                <p>As partners with Essilor Labs, we provide access to some of the world's most advanced lens technologies. From Varilux&reg; progressive lenses for seamless near-to-far vision to Crizal&reg; anti-reflective coatings for glare-free clarity and Transitions&reg; light intelligent lenses that adapt to changing light, Essilor helps us deliver unmatched comfort, protection, and performance.</p>
+            </div>
+            <div class="partnership-card">
+                <div class="partnership-logo">
+                    <img src="logos/zeiss.svg" alt="Zeiss Labs">
+                </div>
+                <h3>Zeiss Labs</h3>
+                <p>Through our collaboration with Zeiss Labs, we offer precision-crafted premium lenses, trusted by millions worldwide. From ZEISS SmartLife® lenses designed for today's digital lifestyle to ZEISS DriveSafe® lenses that enhance clarity and reduce glare while driving, our patients enjoy innovation, accuracy, and uncompromising optical quality.</p>
+            </div>
+            <a href="https://www.carecredit.com/go/GAT965/?dtc=DS9X&sitecode=CCLBADS9X" target="_blank" class="partnership-card" style="text-decoration: none; display: block;">
+                <div class="partnership-logo">
+                    <img width="275" style="max-width:100%;" src="https://www.carecredit.com/sites/pc/image/flexible-financing-prequal-420x150.png"/>
+                </div>
+                <h3>CareCredit Financing</h3>
+                <p>We accept CareCredit — a healthcare credit card that makes it easy to get the eyewear you need now and pay over time with flexible financing options.</p>
+            </a>
         </div>
     </section>
 
@@ -1823,6 +1868,22 @@
         </div>
     </section>
 
+    <section id="location-showcase" class="location-showcase">
+        <div class="showcase-container">
+            <div class="showcase-image">
+                <video class="store-video" controls autoplay muted loop playsinline preload="auto" poster="locationPhotos/store-interior-preview.jpg" aria-label="Video tour inside Laredo Optical Co.">
+                    <source src="locationPhotos/store-interior-web.webm" type="video/webm">
+                    <source src="locationPhotos/store-interior-web.mp4" type="video/mp4">
+                    Your browser does not support embedded video. <a href="locationPhotos/store-interior-web.mp4">Watch our store tour</a>.
+                </video>
+                <div class="showcase-caption">
+                    <h3>Step Inside Our Store</h3>
+                    <p>Browse our collections in a comfortable, well-lit environment designed for your convenience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="eyewear" class="eyewear">
         <div class="section-title">
             <h2>Eyewear Collections</h2>
@@ -1868,6 +1929,22 @@
         </div>
     </section>
 
+    <section id="gallery" class="gallery">
+        <div class="section-title">
+            <h2>Gallery</h2>
+            <p>Explore our premium eyewear collection</p>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery-grid" id="galleryGrid" role="region" aria-roledescription="carousel" aria-label="Eyewear photo gallery"></div>
+            <div class="gallery-controls">
+                <button type="button" id="galleryPrev" aria-label="Previous photo">&#8592;</button>
+                <span id="galleryPosition" aria-live="off">01 / 38</span>
+                <button type="button" id="galleryNext" aria-label="Next photo">&#8594;</button>
+                <button type="button" id="galleryPause" aria-label="Pause automatic photo rotation">Pause</button>
+            </div>
+        </div>
+    </section>
+
     <section id="services" class="services">
         <div class="section-title">
             <h2>Specialized Services</h2>
@@ -1905,7 +1982,6 @@
         </div>
     </section>
 
-    <!-- Counter Display Showcase -->
     <section id="counter-showcase" class="counter-showcase">
         <div class="showcase-container">
             <div class="showcase-image">
@@ -1914,107 +1990,6 @@
                     <h3>Expert Service Counter</h3>
                     <p>Professional consultations and personalized eyewear fitting services in a welcoming environment</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="eye-exam" class="eye-exam">
-        <h2>Time for an Eye Exam?</h2>
-        <div class="eye-exam-content">
-            <p>Need an updated glasses prescription? We've partnered with our affiliated practice, Eye Care of Laredo, to provide comprehensive eye exams and vision health services, conveniently located just steps away in Suite 101.<br>Call <span class="phone-number">(956) 652-4321</span> to book your appointment today.</p>
-            
-            <div class="eye-exam-grid">
-                <div class="eye-exam-card">
-                    <h3>Book an Eye Exam</h3>
-                    <p>Eye Care of Laredo - Suite 101</p>
-                    <p><strong>Call: <span class="phone-number">(956) 652-4321</span></strong></p>
-                </div>
-                <div class="eye-exam-card">
-                    <h3>Already Have a Prescription?</h3>
-                    <p>Bring us a copy or fax to:</p>
-                    <p><strong>(832) 895-6109</strong></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="partnerships" class="partnerships">
-        <div class="section-title">
-            <h2>Partnerships</h2>
-            <p>Working with industry leaders to serve you better</p>
-        </div>
-        <div class="partnerships-grid">
-            <div class="partnership-card">
-                <div class="partnership-logo">
-                    <img src="logos/eyeTopia.svg" alt="Eyetopia Vision Insurance">
-                </div>
-                <h3>Eyetopia Vision Insurance</h3>
-                <p>We're proud to be in-network with Eyetopia Vision Insurance, making it easy for patients to use their vision benefits directly with us. Enjoy seamless access to quality eyewear and eye care while maximizing your coverage.</p>
-            </div>
-            <div class="partnership-card">
-                <div class="partnership-logo">
-                    <img src="logos/essilor.svg" alt="Essilor Labs">
-                </div>
-                <h3>Essilor Labs</h3>
-                <p>As partners with Essilor Labs, we provide access to some of the world's most advanced lens technologies. From Varilux&reg; progressive lenses for seamless near-to-far vision to Crizal&reg; anti-reflective coatings for glare-free clarity and Transitions&reg; light intelligent lenses that adapt to changing light, Essilor helps us deliver unmatched comfort, protection, and performance.</p>
-            </div>
-            <div class="partnership-card">
-                <div class="partnership-logo">
-                    <img src="logos/zeiss.svg" alt="Zeiss Labs">
-                </div>
-                <h3>Zeiss Labs</h3>
-                <p>Through our collaboration with Zeiss Labs, we offer precision-crafted premium lenses, trusted by millions worldwide. From ZEISS SmartLife® lenses designed for today's digital lifestyle to ZEISS DriveSafe® lenses that enhance clarity and reduce glare while driving, our patients enjoy innovation, accuracy, and uncompromising optical quality.</p>
-            </div>
-            <a href="https://www.carecredit.com/go/GAT965/?dtc=DS9X&sitecode=CCLBADS9X" target="_blank" class="partnership-card" style="text-decoration: none; display: block;">
-                <div class="partnership-logo">
-                    <img width="275" style="max-width:100%;" src="https://www.carecredit.com/sites/pc/image/flexible-financing-prequal-420x150.png"/>
-                </div>
-                <h3>CareCredit Financing</h3>
-                <p>We accept CareCredit — a healthcare credit card that makes it easy to get the eyewear you need now and pay over time with flexible financing options.</p>
-            </a>
-        </div>
-    </section>
-
-    <section id="gallery" class="gallery">
-        <div class="section-title">
-            <h2>Gallery</h2>
-            <p>Explore our premium eyewear collection</p>
-        </div>
-        <div class="gallery-container">
-            <div class="gallery-grid" id="galleryGrid" role="region" aria-roledescription="carousel" aria-label="Eyewear photo gallery"></div>
-            <div class="gallery-controls">
-                <button type="button" id="galleryPrev" aria-label="Previous photo">&#8592;</button>
-                <span id="galleryPosition" aria-live="off">01 / 38</span>
-                <button type="button" id="galleryNext" aria-label="Next photo">&#8594;</button>
-                <button type="button" id="galleryPause" aria-label="Pause automatic photo rotation">Pause</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose">&#215;</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
-        <div class="lightbox-content">
-            <img id="lightboxImage" src="" alt="">
-        </div>
-        <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
-        <div class="lightbox-counter" id="lightboxCounter">1 / 38</div>
-    </div>
-
-    <!-- Street View Showcase -->
-    <section id="street-showcase" class="street-showcase">
-        <div class="showcase-container">
-            <div class="showcase-image">
-                <div class="showcase-caption">
-                    <h3>Visit Our Professional Location</h3>
-                    <p>Conveniently located at 1119 Fenwick Dr. Suite 103, serving the Laredo community</p>
-                </div>
-                <video class="store-video professional-location-video" controls autoplay muted loop playsinline preload="auto" poster="locationPhotos/professional-location-preview.jpg" aria-label="Video of Laredo Optical Co.'s professional location">
-                    <source src="locationPhotos/professional-location.webm" type="video/webm">
-                    <source src="locationPhotos/professional-location.mp4" type="video/mp4">
-                    Your browser does not support embedded video. <a href="locationPhotos/professional-location.mp4">Watch our location video</a>.
-                </video>
             </div>
         </div>
     </section>
@@ -2057,6 +2032,20 @@
             </div>
             <div class="brand-logo">
                 <img src="logos/michaelKors.png" alt="Michael Kors">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-title">
+            <h2>About Us</h2>
+            <p>Redefining the eyewear experience through style, quality, and personalized service</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>At Laredo Optical Co. we redefine the eyewear experience by combining style, quality, and personalized service in a premier optical retail setting. Our curated collection features an extensive range of eyeglasses and sunglasses, from budget-friendly essentials to high-end luxury frames from globally renowned designers.</p>
+                <p>Whether you're seeking everyday vision solutions or a bold fashion statement, we provide eyewear that fits every lifestyle and price point, without compromising on craftsmanship or care. Our eye care professionals offer expert fittings and tailored consultations to ensure that each customer leaves with perfect vision and confident style.</p>
+                <p><strong>Experience Laredo Optical Co., where timeless elegance meets affordable eyewear.</strong></p>
             </div>
         </div>
     </section>
@@ -2112,6 +2101,17 @@
             </iframe>
         </div>
     </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&#215;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
+        <div class="lightbox-counter" id="lightboxCounter">1 / 38</div>
+    </div>
 
     <script>
         // Mobile menu functionality
@@ -2375,5 +2375,6 @@
     <footer class="site-footer">LAREDO OPTICAL CO.<span>Your vision is our focus</span></footer>
     <div class="diamond-cursor" aria-hidden="true"><img src="assets/diamond-cursor.svg" alt=""></div>
     <script src="assets/diamond-cursor.js" defer></script>
+    <script src="assets/banner-brands.js" defer></script>
 </body>
 </html>
