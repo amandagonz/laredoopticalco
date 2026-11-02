@@ -1631,38 +1631,30 @@
             .hero-divider { width: 100px; }
         }
 
-        /* Rotating photo card stack */
-        .gallery-container { max-width: 820px; padding: 0 1rem; }
+        /* Three photos remain visible as the carousel rolls forward. */
+        .gallery-container { max-width: 1240px; padding: 0; }
+        .gallery-viewport { overflow: hidden; margin: 0 auto 2rem; }
         .gallery-grid {
-            display: block;
-            position: relative;
-            width: calc(100% - 36px);
-            margin: 0 auto 3rem;
-            aspect-ratio: 4 / 3;
-            isolation: isolate;
+            display: flex;
+            gap: clamp(8px, 1.5vw, 20px);
+            width: 100%;
+            align-items: stretch;
+            transition: transform 600ms cubic-bezier(0.22, 0.7, 0.3, 1);
         }
         .gallery-item {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            padding: 10px;
-            background: #1d1c18;
+            position: relative;
+            flex: 0 0 calc((100% - 2 * clamp(8px, 1.5vw, 20px)) / 3);
+            min-width: 0;
+            aspect-ratio: 4 / 5;
+            padding: 6px;
             border: 1px solid var(--lux-gold);
-            border-radius: 8px;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-            transform-origin: 50% 85%;
-            transition: transform 550ms cubic-bezier(0.22, 0.7, 0.3, 1), opacity 450ms;
+            border-radius: 3px;
+            box-shadow: none;
         }
-        .gallery-item img { height: 100%; object-fit: contain; background: #121210; border-radius: 3px; filter: none; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: contain; border-radius: 0; filter: none; }
         .gallery-item::after { display: none; }
         .gallery-item:hover img { transform: none; filter: none; }
-        .gallery-item[data-depth="0"] { z-index: 3; transform: rotate(0); opacity: 1; }
-        .gallery-item[data-depth="1"] { z-index: 2; transform: translate(12px, 12px) rotate(3deg) scale(0.98); opacity: 0.8; pointer-events: none; }
-        .gallery-item[data-depth="2"] { z-index: 1; transform: translate(-10px, 18px) rotate(-4deg) scale(0.96); opacity: 0.55; pointer-events: none; }
-        .gallery-item[data-depth="hidden"] { visibility: hidden; opacity: 0; pointer-events: none; transform: scale(0.94); }
-        .gallery-item[data-depth="0"].shuffle-next { transform: translate(32%, -5%) rotate(14deg); opacity: 0; pointer-events: none; }
-        .gallery-item[data-depth="0"].shuffle-prev { transform: translate(-32%, -5%) rotate(-14deg); opacity: 0; pointer-events: none; }
+        .gallery-item:focus-visible { outline: 2px solid #e2c589; outline-offset: -3px; }
         .gallery-controls { display: flex; justify-content: center; align-items: center; gap: 1.1rem; color: var(--lux-ivory); }
         .gallery-controls button {
             min-width: 44px; min-height: 44px; padding: 0.5rem 0.85rem;
@@ -1674,11 +1666,11 @@
         #galleryPause { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
         @media (max-width: 768px) {
             .gallery-container { padding: 0; }
-            .gallery-item { padding: 6px; }
+            .gallery-item { padding: 3px; }
             .gallery-controls { gap: 0.7rem; }
         }
         @media (prefers-reduced-motion: reduce) {
-            .gallery-item { transition: none; }
+            .gallery-grid { transition: none; }
         }
     </style>
     <link rel="stylesheet" href="assets/atelier.css">
@@ -1935,11 +1927,13 @@
             <p>Explore our premium eyewear collection</p>
         </div>
         <div class="gallery-container">
-            <div class="gallery-grid" id="galleryGrid" role="region" aria-roledescription="carousel" aria-label="Eyewear photo gallery"></div>
+            <div class="gallery-viewport" id="galleryViewport" role="region" aria-roledescription="carousel" aria-label="Eyewear photo gallery, three photos at a time">
+                <div class="gallery-grid" id="galleryGrid"></div>
+            </div>
             <div class="gallery-controls">
-                <button type="button" id="galleryPrev" aria-label="Previous photo">&#8592;</button>
-                <span id="galleryPosition" aria-live="off">01 / 38</span>
-                <button type="button" id="galleryNext" aria-label="Next photo">&#8594;</button>
+                <button type="button" id="galleryPrev" aria-label="Slide to previous photo">&#8592;</button>
+                <span id="galleryPosition" aria-live="off">01 / 52</span>
+                <button type="button" id="galleryNext" aria-label="Slide to next photo">&#8594;</button>
                 <button type="button" id="galleryPause" aria-label="Pause automatic photo rotation">Pause</button>
             </div>
         </div>
@@ -2160,132 +2154,179 @@
             });
         });
 
-        // Rotating gallery with a shuffled card stack
-        (function() {
-            const photos = [
-                { index: 0, src: 'productPhotos/product1.jpg' },
-                { index: 1, src: 'productPhotos/product2.jpg' },
-                { index: 2, src: 'productPhotos/product3.jpg' },
-                { index: 3, src: 'productPhotos/product4.jpg' },
-                { index: 4, src: 'productPhotos/product5.jpg' },
-                { index: 5, src: 'productPhotos/product6.jpg' },
-                { index: 6, src: 'productPhotos/product7.jpg' },
-                { index: 7, src: 'productPhotos/product8.jpg' },
-                { index: 8, src: 'productPhotos/product9.jpg' },
-                { index: 9, src: 'productPhotos/product10.jpg' },
-                { index: 10, src: 'productPhotos/product11.jpg' },
-                { index: 11, src: 'productPhotos/product12.jpg' },
-                { index: 12, src: 'productPhotos/product13.jpg' },
-                { index: 13, src: 'productPhotos/product14.jpg' },
-                { index: 14, src: 'productPhotos/product15.jpg' },
-                { index: 15, src: 'productPhotos/product16.jpg' },
-                { index: 16, src: 'productPhotos/product17.jpg' },
-                { index: 17, src: 'productPhotos/product18.jpg' },
-                { index: 18, src: 'productPhotos/product19.jpg' },
-                { index: 19, src: 'productPhotos/product20.jpg' },
-                { index: 20, src: 'productPhotos/product21.jpg' },
-                { index: 21, src: 'productPhotos/product22.jpg' },
-                { index: 22, src: 'productPhotos/product23.jpg' },
-                { index: 23, src: 'productPhotos/product24.jpg' },
-                { index: 24, src: 'productPhotos/product25.jpg' },
-                { index: 25, src: 'productPhotos/product26.jpg' },
-                { index: 26, src: 'productPhotos/product27.jpg' },
-                { index: 27, src: 'productPhotos/product28.jpg' },
-                { index: 28, src: 'productPhotos/product29.jpg' },
-                { index: 29, src: 'productPhotos/product30.jpg' },
-                { index: 30, src: 'productPhotos/product31.jpg' },
-                { index: 31, src: 'productPhotos/product32.jpg' },
-                { index: 32, src: 'productPhotos/product33.jpg' },
-                { index: 33, src: 'productPhotos/product34.jpg' },
-                { index: 34, src: 'productPhotos/product35.jpg' },
-                { index: 35, src: 'productPhotos/product36.jpg' },
-                { index: 36, src: 'productPhotos/product37.jpg' },
-                { index: 37, src: 'productPhotos/product38.png' },
-            ];
+        // Shared order for the gallery and full-screen viewer.
+        const galleryPhotos = [
+            'assets/gallery/product1.jpg',
+            'assets/gallery/product2.jpg',
+            'assets/gallery/product3.jpg',
+            'assets/gallery/product4.jpg',
+            'assets/gallery/product5.jpg',
+            'assets/gallery/product6.jpg',
+            'assets/gallery/product7.jpg',
+            'assets/gallery/product8.jpg',
+            'assets/gallery/product9.jpg',
+            'assets/gallery/product10.jpg',
+            'assets/gallery/product11.jpg',
+            'assets/gallery/product12.jpg',
+            'assets/gallery/product13.jpg',
+            'assets/gallery/product14.jpg',
+            'assets/gallery/product15.jpg',
+            'assets/gallery/product16.jpg',
+            'assets/gallery/product17.jpg',
+            'assets/gallery/product18.jpg',
+            'assets/gallery/product19.jpg',
+            'assets/gallery/product20.jpg',
+            'assets/gallery/product21.jpg',
+            'assets/gallery/product22.jpg',
+            'assets/gallery/product23.jpg',
+            'assets/gallery/product24.jpg',
+            'assets/gallery/product25.jpg',
+            'assets/gallery/product26.jpg',
+            'assets/gallery/product27.jpg',
+            'assets/gallery/product28.jpg',
+            'assets/gallery/product29.jpg',
+            'assets/gallery/product30.jpg',
+            'assets/gallery/product31.jpg',
+            'assets/gallery/product32.jpg',
+            'assets/gallery/product33.jpg',
+            'assets/gallery/product34.jpg',
+            'assets/gallery/product35.jpg',
+            'assets/gallery/product36.jpg',
+            'assets/gallery/product37.jpg',
+            'assets/gallery/product38.jpg',
+            'assets/gallery/product39.jpg',
+            'assets/gallery/product40.jpg',
+            'assets/gallery/product41.jpg',
+            'assets/gallery/product42.jpg',
+            'assets/gallery/product43.jpg',
+            'assets/gallery/product44.jpg',
+            'assets/gallery/product45.jpg',
+            'assets/gallery/product46.jpg',
+            'assets/gallery/product47.jpg',
+            'assets/gallery/product48.jpg',
+            'assets/gallery/product49.jpg',
+            'assets/gallery/product50.jpg',
+            'assets/gallery/product51.jpg',
+            'assets/gallery/product52.jpg',
+        ];
 
+        // Three-photo carousel with seamless looping in either direction.
+        (function() {
             const grid = document.getElementById('galleryGrid');
+            const viewport = document.getElementById('galleryViewport');
             const position = document.getElementById('galleryPosition');
             const pauseButton = document.getElementById('galleryPause');
             const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            const count = galleryPhotos.length;
             let active = 0;
             let busy = false;
             let paused = reducedMotion.matches;
             let visible = false;
-            const cards = photos.map(photo => {
+            let finishTimer;
+            // Edge copies keep three photos in view while crossing either end.
+            const order = [...galleryPhotos.slice(-3), ...galleryPhotos, ...galleryPhotos.slice(0, 3)];
+            const cards = order.map((src, slot) => {
+                const index = (slot - 3 + count) % count;
                 const card = document.createElement('button');
                 card.type = 'button';
                 card.className = 'gallery-item';
-                card.dataset.index = photo.index;
-                card.setAttribute('aria-label', `Open eyewear photo ${photo.index + 1}`);
+                card.dataset.index = index;
+                card.setAttribute('aria-label', `Open eyewear photo ${index + 1}`);
                 const img = document.createElement('img');
-                img.alt = `Eyewear Collection ${photo.index + 1}`;
+                img.alt = `Eyewear Collection ${index + 1}`;
                 img.decoding = 'async';
                 card.appendChild(img);
                 grid.appendChild(card);
                 return card;
             });
-
-            function render() {
-                cards.forEach((card, i) => {
-                    const depth = (i - active + cards.length) % cards.length;
-                    card.dataset.depth = depth < 3 ? depth : 'hidden';
-                    card.tabIndex = depth === 0 ? 0 : -1;
-                    card.setAttribute('aria-hidden', String(depth !== 0));
-                    if (depth < 3 && !card.firstChild.getAttribute('src')) {
-                        card.firstChild.src = photos[i].src;
+            function render(animate = false) {
+                const gap = parseFloat(getComputedStyle(grid).columnGap) || 0;
+                const step = (viewport.clientWidth + gap) / 3;
+                grid.style.transition = animate && !reducedMotion.matches ? '' : 'none';
+                grid.style.transform = `translate3d(${-step * (active + 3)}px, 0, 0)`;
+                cards.forEach((card, slot) => {
+                    const inView = slot >= active + 3 && slot < active + 6;
+                    card.tabIndex = inView ? 0 : -1;
+                    card.setAttribute('aria-hidden', String(!inView));
+                    // Preload the entering photos before they slide into view.
+                    if (slot >= active + 1 && slot <= active + 7 && !card.firstChild.getAttribute('src')) {
+                        card.firstChild.src = order[slot];
                     }
                 });
-                position.textContent = `${String(active + 1).padStart(2, '0')} / ${photos.length}`;
+                position.textContent = `${String((active + count) % count + 1).padStart(2, '0')} / ${count}`;
             }
-
-            function shuffle(direction) {
+            function finish() {
+                clearTimeout(finishTimer);
+                active = (active + count) % count;
+                render();
+                busy = false;
+            }
+            function move(direction) {
                 if (busy) return;
                 busy = true;
-                const outgoing = cards[active];
-                outgoing.classList.add(direction > 0 ? 'shuffle-next' : 'shuffle-prev');
-                window.setTimeout(() => {
-                    outgoing.classList.remove('shuffle-next', 'shuffle-prev');
-                    active = (active + direction + cards.length) % cards.length;
-                    render();
-                    busy = false;
-                }, reducedMotion.matches ? 0 : 550);
+                active += direction;
+                render(true);
+                finishTimer = window.setTimeout(finish, reducedMotion.matches ? 0 : 650);
             }
             function updatePause() {
                 pauseButton.textContent = paused ? 'Play' : 'Pause';
                 pauseButton.setAttribute('aria-label', paused ? 'Start automatic photo rotation' : 'Pause automatic photo rotation');
             }
-            document.getElementById('galleryPrev').addEventListener('click', () => shuffle(-1));
-            document.getElementById('galleryNext').addEventListener('click', () => shuffle(1));
+            document.getElementById('galleryPrev').addEventListener('click', () => move(-1));
+            document.getElementById('galleryNext').addEventListener('click', () => move(1));
             pauseButton.addEventListener('click', () => { paused = !paused; updatePause(); });
-            grid.addEventListener('keydown', event => {
+            viewport.addEventListener('keydown', event => {
                 if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
                     event.preventDefault();
-                    shuffle(event.key === 'ArrowRight' ? 1 : -1);
-                    window.setTimeout(() => cards[active].focus({ preventScroll: true }), reducedMotion.matches ? 0 : 560);
+                    if (busy) return;
+                    move(event.key === 'ArrowRight' ? 1 : -1);
+                    window.setTimeout(() => cards[active + 3].focus({ preventScroll: true }), reducedMotion.matches ? 20 : 670);
                 }
             });
-            new IntersectionObserver(entries => { visible = entries[0].isIntersecting; }).observe(grid);
-            reducedMotion.addEventListener('change', () => { paused = reducedMotion.matches; updatePause(); });
+            let touchStart;
+            viewport.addEventListener('touchstart', event => {
+                const touch = event.touches[0];
+                touchStart = { x: touch.clientX, y: touch.clientY };
+            }, { passive: true });
+            viewport.addEventListener('touchend', event => {
+                if (!touchStart) return;
+                const touch = event.changedTouches[0];
+                const dx = touch.clientX - touchStart.x;
+                const dy = touch.clientY - touchStart.y;
+                touchStart = null;
+                if (Math.abs(dx) > 35 && Math.abs(dx) > Math.abs(dy)) {
+                    event.preventDefault();
+                    move(dx < 0 ? 1 : -1);
+                }
+            }, { passive: false });
+            viewport.addEventListener('touchcancel', () => { touchStart = null; });
+            new ResizeObserver(finish).observe(viewport);
+            window.addEventListener('resize', finish);
+            new IntersectionObserver(entries => { visible = entries[0].isIntersecting; }).observe(viewport);
+            reducedMotion.addEventListener('change', () => {
+                paused = reducedMotion.matches;
+                finish();
+                updatePause();
+            });
             window.setInterval(() => {
-                if (!paused && visible && !document.hidden && !grid.matches(':hover') &&
+                const hovering = matchMedia('(hover: hover)').matches && viewport.matches(':hover');
+                if (!paused && visible && !document.hidden && !hovering &&
                     !document.querySelector('.gallery-container').contains(document.activeElement) &&
-                    !document.getElementById('lightbox').classList.contains('active')) shuffle(1);
-            }, 4500);
+                    !document.getElementById('lightbox').classList.contains('active')) move(1);
+            }, 2500);
             render();
             updatePause();
         })();
 
-
         (function() {
-            const TOTAL = 38;
+            const TOTAL = galleryPhotos.length;
             const lightbox = document.getElementById('lightbox');
             const lightboxImage = document.getElementById('lightboxImage');
             const lightboxCounter = document.getElementById('lightboxCounter');
             let currentIndex = 0;
 
-            const srcOverrides = { 37: 'productPhotos/product38.png' };
             function getSrc(index) {
-                return srcOverrides[index] || `productPhotos/product${index + 1}.jpg`;
+                return galleryPhotos[index];
             }
 
             function openLightbox(index) {
