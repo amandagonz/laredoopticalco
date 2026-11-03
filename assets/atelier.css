@@ -179,6 +179,8 @@ section#contact .section-title p, #location-showcase .showcase-caption p,
 #home .button-secondary:hover { background: #142740; border-color: var(--gold); }
 
 .phone-number { white-space: nowrap; }
+a.phone-number { color: inherit; text-decoration: none; }
+a.phone-number:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 /* Tie the embedded map into the midnight navy and gold contact section. */
 #contact .map-container {
