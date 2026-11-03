@@ -182,6 +182,16 @@ section#contact .section-title p, #location-showcase .showcase-caption p,
 a.phone-number { color: inherit; text-decoration: none; }
 a.phone-number:hover { text-decoration: underline; text-underline-offset: 4px; }
 
+/* Keep telephone links consistent in every browser and link state. */
+#eye-exam a.phone-number:any-link {
+    color: #62666b !important;
+    -webkit-text-fill-color: currentColor;
+}
+#eye-exam .eye-exam-card a.phone-number:any-link {
+    color: #e2c589 !important;
+}
+
+
 /* Tie the embedded map into the midnight navy and gold contact section. */
 #contact .map-container {
     background: var(--ink);
