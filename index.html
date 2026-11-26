@@ -79,130 +79,6 @@
             height: 90px;
         }
 
-        .black-friday-banner {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-            column-gap: clamp(1rem, 3vw, 4rem);
-            align-items: center;
-            width: 100%;
-            padding: 1.5rem clamp(1rem, 4vw, 5rem);
-            color: #ffffff;
-            text-align: center;
-            text-transform: uppercase;
-            background: #000000;
-            border-bottom: 2px solid #c5a057;
-        }
-
-        .black-friday-label {
-            grid-column: 1;
-            grid-row: 1 / 3;
-            color: #ffffff;
-            font-size: clamp(1.5rem, 3vw, 3rem);
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            line-height: 1.2;
-        }
-
-        .black-friday-offer {
-            grid-column: 2;
-            grid-row: 1 / 3;
-            display: flex;
-            align-items: baseline;
-            justify-content: center;
-            gap: 0.08em;
-            margin: 0.1rem 0 0.2rem;
-            font-family: var(--font-primary);
-            font-size: clamp(4rem, 9vw, 9rem);
-            font-weight: 900;
-            letter-spacing: -0.07em;
-            line-height: 1;
-            white-space: nowrap;
-        }
-
-        .black-friday-discount {
-            color: #b78a35;
-            background-image:
-                linear-gradient(110deg, transparent 42%, rgba(255, 255, 255, 0.95) 49%, #fff8dc 50%, rgba(255, 255, 255, 0.95) 51%, transparent 58%),
-                linear-gradient(155deg, #9b6b22 5%, #dcb45f 24%, #ffedb0 36%, #c2943c 48%, #a87626 60%, #efd080 78%, #b18432 95%);
-            background-size: 300% 100%, 100% 100%;
-            background-position: 100% 0, center;
-            background-repeat: no-repeat;
-            animation: black-friday-shine 3s ease-in-out infinite;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        @keyframes black-friday-shine {
-            0%, 15% {
-                background-position: 100% 0, center;
-            }
-            65%, 100% {
-                background-position: 0% 0, center;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .black-friday-discount {
-                animation: none;
-            }
-        }
-
-        .black-friday-shop {
-            grid-column: 3;
-            grid-row: 1;
-            align-self: end;
-            padding: 0 0.15rem 0.4rem;
-            border-bottom: 2px solid #c5a057;
-            color: #ffffff;
-            font-size: clamp(0.9rem, 2.2vw, 1.5rem);
-            font-weight: 700;
-            letter-spacing: 0.015em;
-            line-height: 1.3;
-        }
-
-        .black-friday-details {
-            grid-column: 3;
-            grid-row: 2;
-            align-self: start;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.3rem 0.7rem;
-            margin-top: 0.6rem;
-            font-size: clamp(0.7rem, 1.4vw, 0.9rem);
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            line-height: 1.4;
-        }
-
-        .black-friday-details span + span {
-            border-left: 1px solid #b78a35;
-            padding-left: 0.7rem;
-        }
-
-        @media (max-width: 768px) {
-            .black-friday-banner {
-                display: flex;
-                flex-direction: column;
-                gap: 0;
-                padding: 1.25rem 1rem 1.4rem;
-            }
-
-            .black-friday-label {
-                font-size: clamp(1rem, 4vw, 1.4rem);
-            }
-
-            .black-friday-offer {
-                font-size: clamp(4rem, 15vw, 7rem);
-            }
-
-            .black-friday-shop,
-            .black-friday-details {
-                align-self: center;
-            }
-        }
-
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -359,20 +235,6 @@
             justify-content: center;
             text-align: center;
             gap: 3rem;
-        }
-
-        .hero-logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: fadeUp 1s ease 0.3s both;
-        }
-
-        .hero-logo img {
-            max-width: 400px;
-            max-height: 200px;
-            filter: brightness(0) invert(1);
-            opacity: 0.9;
         }
 
         .hero-divider {
@@ -1416,13 +1278,6 @@
                 padding: 0 1rem;
             }
 
-            .hero-logo img {
-                max-width: 300px;
-                max-height: 150px;
-            }
-
-
-
             .advantages-grid,
             .eyewear-grid,
             .services-grid,
@@ -1535,13 +1390,10 @@
         .nav-menu a:hover { color: #826022; }
         .nav-menu a::after { background: var(--lux-metal); height: 1px; }
         .menu-toggle span { background: #111111; }
-        .black-friday-banner { border-bottom: 1px solid var(--lux-gold); }
-
         .hero { height: 660px; border-bottom: 1px solid var(--lux-line); }
         .hero::before { background: linear-gradient(90deg, rgba(9, 9, 8, 0.82), rgba(9, 9, 8, 0.48), rgba(9, 9, 8, 0.75)); }
         .hero::after { height: 1px; background: var(--lux-metal); }
         .hero-content { gap: 2.25rem; }
-        .hero-logo img { opacity: 1; }
         .hero-divider { background: var(--lux-metal); opacity: 1; }
         .hero-text .tagline {
             color: var(--lux-ivory);
@@ -1638,7 +1490,6 @@
             .nav-menu { background: #ffffff; border-bottom: 1px solid var(--lux-line); }
             .nav-menu a { color: #111111; font-size: 0.95rem; }
             .hero { height: 580px; }
-            .hero-logo img { max-width: min(310px, 80vw); }
             .hero-content { gap: 1.75rem; }
             .about, .advantages, .eyewear, .services, .eye-exam,
             .partnerships, .gallery, .brands, .contact { padding: 4rem 1.25rem; }
@@ -1697,19 +1548,6 @@
     <link rel="stylesheet" href="assets/atelier.css?v=phone-colors-2">
 </head>
 <body>
-    <a class="black-friday-banner" href="#brands" aria-label="Explore our brands: Black Friday, 50% off all designer frames, November 23–25, in-store only">
-        <svg class="banner-brands" role="img" aria-label="Tom Ford, Burberry, Gucci, YSL, Chloé, Versace, Ray-Ban, Oakley, Tiffany &amp; Co."></svg>
-        <div class="banner-side banner-side-left">
-            <span class="black-friday-label">Black Friday</span>
-            <span class="banner-detail">Nov 23–25</span>
-        </div>
-        <strong class="black-friday-offer"><span class="black-friday-discount">50% OFF</span></strong>
-        <div class="banner-side banner-side-right">
-            <span class="black-friday-shop">Shop all designer frames</span>
-            <span class="banner-detail">In-store only</span>
-        </div>
-    </a>
-
     <header class="header">
         <nav class="nav-container">
             <a href="#home" class="logo-container">
@@ -1740,10 +1578,13 @@
 
     <section id="home" class="hero">
         <div class="hero-bg"></div>
+        <svg class="hero-brands" role="img" aria-label="Tom Ford, Burberry, Gucci, YSL, Chloé, Versace, Ray-Ban, Oakley, Tiffany &amp; Co."></svg>
         <div class="hero-content">
             <div class="hero-logo">
                 <p class="hero-eyebrow">Locally owned · Laredo, Texas</p>
-                <img src="logos/logo1.png" alt="Laredo Optical Co. — eyewear, sunglasses, optical accessories">
+                <div class="hero-brand-frame">
+                    <img src="logos/logo1.png" alt="Laredo Optical Co. — eyewear, sunglasses, optical accessories">
+                </div>
             </div>
             <div class="hero-divider"></div>
             <div class="hero-text">
@@ -2443,6 +2284,6 @@
     <footer class="site-footer">LAREDO OPTICAL CO.<span>Your vision is our focus</span></footer>
     <div class="diamond-cursor" aria-hidden="true"><img src="assets/diamond-cursor.svg" alt=""></div>
     <script src="assets/diamond-cursor.js" defer></script>
-    <script src="assets/banner-brands.js" defer></script>
+    <script src="assets/hero-brands.js" defer></script>
 </body>
 </html>
