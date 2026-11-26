@@ -95,6 +95,31 @@
             height: 70px;
         }
 
+        /* Seasonal decoration: remove this block and the hat SVG after Christmas. */
+        .logo-container { position: relative; }
+        .christmas-hat {
+            position: absolute;
+            z-index: 1;
+            width: 38px;
+            height: auto;
+            top: -12px;
+            right: -9px;
+            pointer-events: none;
+            transform: rotate(28deg);
+            transform-origin: 50% 90%;
+            animation: hat-drop 1.3s cubic-bezier(.2, .65, .3, 1) both;
+        }
+        @keyframes hat-drop {
+            0% { opacity: 0; transform: translateY(-90px) rotate(-15deg); }
+            15% { opacity: 1; }
+            65% { transform: translateY(0) rotate(28deg); }
+            80% { transform: translateY(-6px) rotate(23deg); }
+            100% { opacity: 1; transform: translateY(0) rotate(28deg); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .christmas-hat { animation: none; }
+        }
+
         .logo-img {
             height: 70px;
             width: auto;
@@ -1554,6 +1579,11 @@
         <nav class="nav-container">
             <a href="#home" class="logo-container">
                 <img src="logos/logo3.png" alt="Laredo Optical Co." class="logo-img">
+                <svg class="christmas-hat" viewBox="0 0 64 48" aria-hidden="true" focusable="false">
+                    <path d="M10 34C15 24 22 5 37 5c9 0 15 6 17 14-6-4-11-4-15-2 6 5 9 11 11 17Z" fill="#ae2835" stroke="#7d1d2a" stroke-width="1.5" stroke-linejoin="round"/>
+                    <circle cx="55" cy="19" r="6" fill="#fffdf7" stroke="#e8dfd2" stroke-width="1.5"/>
+                    <rect x="8" y="31" width="45" height="11" rx="5.5" fill="#fffdf7" stroke="#e8dfd2" stroke-width="1.5"/>
+                </svg>
             </a>
 
             <div class="nav-right">
