@@ -190,12 +190,14 @@
             align-items: center;
         }
 
+        /* After Christmas, restore streetViewMain.png with inset: 0, no rotation, and background-position: center 25%. */
         .hero-bg {
             position: absolute;
-            inset: 0;
-            background-image: url('locationPhotos/streetViewMain.png');
+            inset: -5%;
+            rotate: 2deg;
+            background-image: url('locationPhotos/storefront-hero.jpg');
             background-size: cover;
-            background-position: center 25%;
+            background-position: center 55%;
             animation: kenBurns 8s ease-out forwards;
             z-index: 0;
         }
